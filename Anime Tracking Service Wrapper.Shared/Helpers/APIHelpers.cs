@@ -4,9 +4,9 @@ using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Helpers
 {
-    public class APIHelpers
+    public static class APIHelpers
     {
-        public static string ConvertToAPIConpliantString(string _text, char charToParse = ' ', char replacementChar = '-')
+        public static string ConvertToAPIConpliantString(this string _text, char charToParse = ' ', char replacementChar = '-')
         {
             char[] txtarr = _text.ToLower().ToCharArray();
             string text = string.Empty;

@@ -14,6 +14,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)APIProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)APIResponse.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)AService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\AgeRatingConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\AiringStatusConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\LibrarySectionConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\MediaGenreConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\MediaTypeConverter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\PrivacySettingsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIWebClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\AnimeObjectHummingbirdV1.cs" />
@@ -40,10 +46,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\PrivacySettings.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\LibraryObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\ServiceID.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\UserInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceName.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
   </ItemGroup>
 </Project>

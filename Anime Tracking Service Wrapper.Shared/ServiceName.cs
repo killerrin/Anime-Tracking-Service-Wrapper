@@ -6,6 +6,7 @@ namespace AnimeTrackingServiceWrapper
 {
     public enum ServiceName
     {
-        Hummingbird
+        Hummingbird,
+        MyAnimeList
     }
 }

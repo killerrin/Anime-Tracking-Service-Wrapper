@@ -1,4 +1,3 @@
-C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Debug\Anime Tracking Service Wrapper.WM.csprojResolveAssemblyReference.cache
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Debug\Anime Tracking Service Wrapper (Windows).dll
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Debug\Anime Tracking Service Wrapper (Windows).pdb
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Debug\Anime Tracking Service Wrapper (Windows).pri
@@ -21,3 +20,4 @@ C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking S
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Debug\qualifiers.txt
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Debug\qualifiers.txt.intermediate
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Debug\Anime Tracking Service Wrapper.WM.csprojResolveAssemblyReference.cache

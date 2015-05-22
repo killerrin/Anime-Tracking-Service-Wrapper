@@ -9,8 +9,10 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
         public ServiceName Service;
 
         #region Properties
-        public string ServiceID { get; set; }
-        public string ServiceID2 { get; set; }
+        public ServiceID ID { get; set; }
+        public ServiceID ID2 { get; set; }
+        public List<ServiceID> AlternateIDs { get; set; }
+
 
         public AiringStatus AiringStatus { get; set; }
 
@@ -20,7 +22,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             get { return WebUrl.OriginalString; }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     WebUrl = new Uri(value, UriKind.Absolute);
                 }
@@ -41,7 +43,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             }
             set
             {
-                if (string.IsNullOrEmpty(value)) { EpisodeCount = 0; }
+                if (string.IsNullOrWhiteSpace(value)) { EpisodeCount = 0; }
                 else if (value.Contains("?")) { EpisodeCount = 0; }
                 else
                 {
@@ -69,12 +71,14 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             get { return m_coverImageUrl.OriginalString; }
             set
             {
-                if (!string.IsNullOrEmpty(value))
+                if (!string.IsNullOrWhiteSpace(value))
                 {
                     m_coverImageUrl = new Uri(value, UriKind.Absolute);
                 }
             }
         }
+
+        public AgeRating AgeRating { get; set; }
 
         public string Synopsis { get; set; }
         public MediaType MediaType { get; set; }

@@ -23,6 +23,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
         Music,
         Soundtrack,
         CharacterCD,
+        DramaCD,
         AudioBook,
 
         // Other
