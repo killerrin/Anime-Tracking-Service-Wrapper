@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>78a728b4-e5bf-437b-b9c8-dd2ca138c3ba</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>AnimeTrackingServiceWrapper</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)AAnimeAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AMangaAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)APIProgress.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)APIResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)AService.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIHelpers.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIWebClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\AnimeObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\FavoriteObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\GenreHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\LibraryObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\PermissionsHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\RatingHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\StoryObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\SubstoryObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\UserObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Data Structures\UserObjectMiniHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1AnimeAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1MangaAPI.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1Service.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\AnimeObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\ActivityFeedSection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\AgeRating.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\AiringStatus.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\LibrarySection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\LibraryType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\MediaGenre.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\MediaType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\PrivacySettings.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\SearchFilter.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\LibraryObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)ServiceName.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Converters\" />
+  </ItemGroup>
+</Project>
