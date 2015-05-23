@@ -11,7 +11,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 {
     public class HummingbirdV1Service : AService
     {
-        public HummingbirdV1Service(APIProgress apiProgress, string apiKey)
+        public HummingbirdV1Service(string apiKey)
             :base()
         {
             Domain = "https://hummingbird.me/api/v1";

@@ -1,0 +1,20 @@
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\API Inspector\bin\Debug\API Inspector.exe.config
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\API Inspector.exe.config
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\API Inspector.exe
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\API Inspector.pdb
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\Anime Tracking Service Wrapper (Desktop).dll
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\Anime Tracking Service Wrapper (Desktop).pdb
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector.csprojResolveAssemblyReference.cache
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\InspectorPage.baml
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\MainWindow.baml
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\InspectorPage.g.cs
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\MainWindow.g.cs
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\App.g.cs
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector_MarkupCompile.cache
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector.g.resources
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API_Inspector.Properties.Resources.resources
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector.csproj.GenerateResource.Cache
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector.exe
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\API Inspector\obj\Debug\API Inspector.pdb
