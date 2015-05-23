@@ -20,7 +20,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 progress.Report(new APIProgressReport(100.0, "", APIResponse.NotSupported));
         }
 
-        public override void SearchManga(string mangaID, IProgress<APIProgressReport> progress)
+        public override void SearchManga(string searchTerm, IProgress<APIProgressReport> progress)
         {
             if (progress != null)
                 progress.Report(new APIProgressReport(100.0, "", APIResponse.NotSupported));

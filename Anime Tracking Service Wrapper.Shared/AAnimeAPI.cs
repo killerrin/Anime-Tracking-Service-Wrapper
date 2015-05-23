@@ -12,8 +12,8 @@ namespace AnimeTrackingServiceWrapper
         public bool Supported { get; protected set; }
 
         public abstract Task<AnimeObject> GetAnime(string animeID, IProgress<APIProgressReport> progress);
-        public abstract void SearchAnime(string animeID, IProgress<APIProgressReport> progress);
-        public abstract void GetAnimeLibrary(IProgress<APIProgressReport> progress); // UserInfo, LibrarySection
-        public abstract void RemoveAnimeFromLibrary(string animeID, IProgress<APIProgressReport> progress); // UserInfo, animeID
+        public abstract Task<List<AnimeObject>> SearchAnime(string searchTerm, IProgress<APIProgressReport> progress);
+        public abstract Task<List<LibraryObject>> GetAnimeLibrary(string username, LibrarySection section, IProgress<APIProgressReport> progress); // UserInfo, LibrarySection
+        public abstract Task<APIResponse> RemoveAnimeFromLibrary(UserInfo userInfo, string animeID, IProgress<APIProgressReport> progress); // UserInfo, animeID
     }
 }

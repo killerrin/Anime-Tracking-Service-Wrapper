@@ -10,7 +10,7 @@ namespace AnimeTrackingServiceWrapper
         public bool Supported { get; protected set; }
 
         public abstract void GetManga(string mangaID, IProgress<APIProgressReport> progress);
-        public abstract void SearchManga(string mangaID, IProgress<APIProgressReport> progress);
+        public abstract void SearchManga(string searchTerm, IProgress<APIProgressReport> progress);
         public abstract void GetMangaLibrary(IProgress<APIProgressReport> progress); // UserInfo, LibrarySection
         public abstract void RemoveMangaFromLibrary(string mangaID, IProgress<APIProgressReport> progress); // UserInfo, mangaID
     }
