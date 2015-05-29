@@ -14,7 +14,8 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             {
                 if (!string.IsNullOrWhiteSpace(ID)) return Int32.Parse(ID);
                 return 0;
-            } 
+            }
+            set { ID = value.ToString(); }
         }
 
         public ServiceID(ServiceName name, string id)
@@ -26,6 +27,11 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
         {
             Service = name;
             ID = id.ToString();
+        }
+
+        public override string ToString()
+        {
+            return Service.ToString() + ", " + ID;
         }
     }
 }

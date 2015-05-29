@@ -37,11 +37,12 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 string responseAsString = await response.Content.ReadAsStringAsync();
-                JObject o = JObject.Parse(responseAsString);
-                AnimeObjectHummingbirdV1 animeObject = JsonConvert.DeserializeObject<AnimeObjectHummingbirdV1>(o.ToString());
 
                 if (progress != null)
                     progress.Report(new APIProgressReport(50.0, "Recieved Anime From Server", APIResponse.ContinuingExecution));
+
+                JObject o = JObject.Parse(responseAsString);
+                AnimeObjectHummingbirdV1 animeObject = JsonConvert.DeserializeObject<AnimeObjectHummingbirdV1>(o.ToString());
 
                 AnimeObject convertedAnimeObject = (AnimeObject)animeObject;
 
@@ -70,14 +71,15 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 string responseAsString = await response.Content.ReadAsStringAsync();
-                JObject o = JObject.Parse(responseAsString);
-                List<AnimeObjectHummingbirdV1> hummingbirdSearchResults = JsonConvert.DeserializeObject<List<AnimeObjectHummingbirdV1>>(o.ToString());
 
                 if (progress != null)
                     progress.Report(new APIProgressReport(50.0, "Recieved Search Results From Server", APIResponse.ContinuingExecution));
 
+                JObject o = JObject.Parse("{\"anime\":" + responseAsString + "}");
+                AnimeObjectListHummingbirdV1 hummingbirdSearchResults = JsonConvert.DeserializeObject<AnimeObjectListHummingbirdV1>(o.ToString());
+
                 List<AnimeObject> convertedSearchResults = new List<AnimeObject>();
-                foreach (var anime in hummingbirdSearchResults)
+                foreach (var anime in hummingbirdSearchResults.anime)
                 {
                     convertedSearchResults.Add((AnimeObject)anime);
                 }
@@ -108,14 +110,15 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 string responseAsString = await response.Content.ReadAsStringAsync();
-                JObject o = JObject.Parse(responseAsString);
-                List<LibraryObjectHummingbirdV1> hummingbirdLibraryObjects = JsonConvert.DeserializeObject<List<LibraryObjectHummingbirdV1>>(o.ToString());
 
                 if (progress != null)
                     progress.Report(new APIProgressReport(50.0, "Recieved LibraryObjects From Server", APIResponse.ContinuingExecution));
 
+                JObject o = JObject.Parse("{\"library\":" + responseAsString + "}");
+                LibraryObjectListHummingbirdV1 hummingbirdLibraryObjects = JsonConvert.DeserializeObject<LibraryObjectListHummingbirdV1>(o.ToString());
+
                 List<LibraryObject> convertedLibraryObjects = new List<LibraryObject>();
-                foreach (var libraryObject in hummingbirdLibraryObjects)
+                foreach (var libraryObject in hummingbirdLibraryObjects.library)
                 {
                     convertedLibraryObjects.Add((LibraryObject)libraryObject);
                 }

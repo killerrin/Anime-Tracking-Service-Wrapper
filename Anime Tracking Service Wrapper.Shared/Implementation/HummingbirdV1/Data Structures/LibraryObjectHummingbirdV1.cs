@@ -43,9 +43,14 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Data_Structur
             libraryObject.Rating                    = Convert.ToDouble(oldObject.rating.value);
             libraryObject.RewatchedTimes            = oldObject.rewatched_times;
             libraryObject.Rewatching                = oldObject.rewatching;
-            libraryObject.Status                    = Converters.LibrarySectionConverter.StringToLibrarySelection(oldObject.status);
+            libraryObject.Section                   = Converters.LibrarySectionConverter.StringToLibrarySelection(oldObject.status);
 
             return libraryObject;
         }
+    }
+
+    public class LibraryObjectListHummingbirdV1
+    {
+        public List<LibraryObjectHummingbirdV1> library { get; set; }
     }
 }

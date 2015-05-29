@@ -41,7 +41,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Data_Structur
                 animeObject.AlternateIDs.Add(new ServiceID(ServiceName.MyAnimeList, oldObject.mal_id.Value));
 
             animeObject.CoverImageUrlString = oldObject.cover_image;
-            animeObject.EnglishTitle        = oldObject.title;
+
 
             if (oldObject.episode_count.HasValue)
                 animeObject.EpisodeCount  = oldObject.episode_count.Value;
@@ -59,14 +59,20 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Data_Structur
             animeObject.ID                  = new ServiceID(ServiceName.Hummingbird, oldObject.slug);
             animeObject.ID2                 = new ServiceID(ServiceName.Hummingbird, oldObject.id);
 
+            animeObject.RomanjiTitle        = oldObject.title;
+            animeObject.EnglishTitle        = oldObject.alternate_title;
             animeObject.KanjiTitle          = "";
             animeObject.MediaType           = Converters.MediaTypeConverter.StringToMediaType(oldObject.show_type);
-            animeObject.RomanjiTitle        = oldObject.alternate_title;
 
             animeObject.Synopsis            = oldObject.synopsis;
             animeObject.WebUrlString        = oldObject.url;
 
             return animeObject;
         }
+    }
+
+    public class AnimeObjectListHummingbirdV1
+    {
+        public List<AnimeObjectHummingbirdV1> anime { get; set; }
     }
 }

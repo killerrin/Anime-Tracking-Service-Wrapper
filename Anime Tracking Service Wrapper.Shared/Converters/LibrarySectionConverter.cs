@@ -25,7 +25,7 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case "recent":                  return LibrarySection.Recent;
                 case "search":                  return LibrarySection.Search;
 
-                case "all":                     
+                case "all":                     return LibrarySection.All;
                 default:                        return LibrarySection.None;
             }
         }
@@ -44,6 +44,7 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case LibrarySection.OnHold:                   return "on-hold";
                 case LibrarySection.Dropped:                  return "dropped";
 
+                case LibrarySection.All:
                 case LibrarySection.Favourites:
                 case LibrarySection.Recent:
                 case LibrarySection.Search:

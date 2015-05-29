@@ -47,12 +47,134 @@
                 </TabItem>
                 <TabItem Header="Get Anime">
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Vertical" Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Anime ID" />
+                                <TextBox x:Name="getAnime_animeIDTextBox" Margin="20,0,0,0" Width="150" />
+                            </StackPanel>
+
+                            <Button Content="Get Anime" Margin="0,20,0,0" Click="GetAnime_ButtonClick"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="20,0,0,0">
+                            <StackPanel Orientation="Horizontal">
+                                <Image x:Name="getAnime_CoverImageImage" Width="100" Height="200" />
+
+                                <ScrollViewer VerticalAlignment="Stretch">
+                                    <StackPanel Orientation="Vertical" Margin="20,0,0,0">
+                                        <TextBlock x:Name="getAnime_RomanjiTitleTextBlock" Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_EnglishTitleTextBlock" Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_KanjiTitleTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+
+                                        <ListBox x:Name="getAnime_AnimeIDs">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+
+                                        <TextBlock x:Name="getAnime_AiringStatusTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_WebUrlTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_EpisodeCountTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+
+                                        <TextBlock x:Name="getAnime_AgeRatingTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_SynopsisTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_MediaTypeTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+
+                                        <TextBlock x:Name="getAnime_FavouriteIDTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+                                        <TextBlock x:Name="getAnime_FavouriteRankTextBlock"   Text="" Width="400" Height="Auto" TextWrapping="WrapWithOverflow"/>
+
+                                        <ListBox x:Name="getAnime_Genres">
+                                            <ListBox.ItemTemplate>
+                                                <DataTemplate>
+                                                    <Grid>
+                                                        <TextBlock Text="{Binding}" />
+                                                    </Grid>
+                                                </DataTemplate>
+                                            </ListBox.ItemTemplate>
+                                        </ListBox>
+                                    </StackPanel>
+                                </ScrollViewer>
+                            </StackPanel>
+                        </StackPanel>
 
                     </Grid>
                 </TabItem>
                 <TabItem Header="Search Anime">
                     <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
 
+                        <StackPanel Orientation="Vertical" Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Search Terms" />
+                                <TextBox x:Name="searchAnime_searchTermsTextBox" Margin="20,0,0,0" Width="150" />
+                            </StackPanel>
+
+                            <Button Content="Search Anime" Margin="0,20,0,0" Click="SearchAnime_ButtonClick"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="20,0,0,0">
+                            <ListBox x:Name="searchAnime_TitlesListBox">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Get Library">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <StackPanel Orientation="Vertical" Grid.Column="0">
+                            <StackPanel Orientation="Horizontal">
+                                <TextBlock Text="Username" />
+                                <TextBox x:Name="getLibrary_usernameTextBox" Margin="45,0,0,0" Width="150" />
+                            </StackPanel>
+                            <StackPanel Orientation="Horizontal" Margin="0,5,0,0">
+                                <TextBlock Text="Library Section" />
+                                <ComboBox x:Name="getLibrary_LibrarySelectionComboBox" SelectedIndex="0" Width="150" Margin="20,0,0,0">
+                                    <ComboBoxItem>All</ComboBoxItem>
+                                    <ComboBoxItem>Currently Watching</ComboBoxItem>
+                                    <ComboBoxItem>Plan To Watch</ComboBoxItem>
+                                    <ComboBoxItem>Completed</ComboBoxItem>
+                                    <ComboBoxItem>On Hold</ComboBoxItem>
+                                    <ComboBoxItem>Dropped</ComboBoxItem>
+                                </ComboBox>
+                            </StackPanel>
+
+                            <Button Content="Get Library" Margin="0,20,0,0" Click="GetLibrary_ButtonClick"/>
+                        </StackPanel>
+
+                        <StackPanel Orientation="Vertical" Grid.Column="1" Margin="20,0,0,0">
+                            <ListBox x:Name="getLibrary_TitlesListBox">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <Grid>
+                                            <TextBlock Text="{Binding}" />
+                                        </Grid>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        </StackPanel>
                     </Grid>
                 </TabItem>
             </TabControl>

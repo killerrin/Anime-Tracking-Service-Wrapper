@@ -6,6 +6,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
 {
     public enum LibrarySection
     {
+        All,
         None,
 
         // Anime

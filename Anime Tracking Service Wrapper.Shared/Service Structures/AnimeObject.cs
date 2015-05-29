@@ -23,9 +23,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
-                {
                     WebUrl = new Uri(value, UriKind.Absolute);
-                }
             }
         }
 
@@ -34,24 +32,6 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
         public string KanjiTitle { get; set; }
 
         public int EpisodeCount { get; set; }
-        public string EpisodeCountString
-        {
-            get
-            {
-                if (EpisodeCount == 0) return "?";
-                return EpisodeCount.ToString();
-            }
-            set
-            {
-                if (string.IsNullOrWhiteSpace(value)) { EpisodeCount = 0; }
-                else if (value.Contains("?")) { EpisodeCount = 0; }
-                else
-                {
-                    try { EpisodeCount = Convert.ToInt32(value); }
-                    catch (Exception) { EpisodeCount = 0; }
-                }
-            }
-        }
 
         private Uri m_coverImageUrl;
         public Uri CoverImageUrl
@@ -72,9 +52,7 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
             set
             {
                 if (!string.IsNullOrWhiteSpace(value))
-                {
                     m_coverImageUrl = new Uri(value, UriKind.Absolute);
-                }
             }
         }
 
@@ -88,5 +66,28 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
 
         public List<MediaGenre> Genres { get; set; }
         #endregion
+
+        public AnimeObject()
+        {
+            ID = new ServiceID(ServiceName.Unknown, -1);
+            ID2 = new ServiceID(ServiceName.Unknown, -1);
+
+            AlternateIDs = new List<ServiceID>();
+            AiringStatus = Service_Structures.AiringStatus.Unknown;
+            WebUrl = new Uri("http://www.example.com", UriKind.Absolute);
+
+            RomanjiTitle = "";
+            EnglishTitle = "";
+            KanjiTitle = "";
+            EpisodeCount = 0;
+            
+            CoverImageUrl = new Uri("http://www.example.com", UriKind.Absolute);
+            AgeRating = Service_Structures.AgeRating.Unrated;
+            Synopsis = "";
+            MediaType = Service_Structures.MediaType.Unknown;
+            FavouriteID = 0;
+            FavouriteRank = 0;
+            Genres = new List<MediaGenre>();
+        }
     }
 }
