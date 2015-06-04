@@ -41,6 +41,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\AiringStatus.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\LibrarySection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\LibraryType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\LoginMethod.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\MediaGenre.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\MediaType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\PrivacySettings.cs" />

@@ -1,5 +1,6 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
 using AnimeTrackingServiceWrapper.Service_Structures;
+using AnimeTrackingServiceWrapper.Service_Structures.Enumerators;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -74,7 +75,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                     }
                 }
 
-                UserLoginInfo userInfo = new UserLoginInfo(username, password, userAuthToken);
+                UserLoginInfo userInfo = new UserLoginInfo(username, password, userAuthToken, LoginMethod.Username);
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "Successfully Logged In", APIResponse.Successful, userInfo));
 
