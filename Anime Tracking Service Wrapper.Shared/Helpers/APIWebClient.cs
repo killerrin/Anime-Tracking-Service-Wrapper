@@ -9,7 +9,7 @@ namespace AnimeTrackingServiceWrapper.Helpers
 {
     public static class APIWebClient
     {
-        public static async Task<HttpResponseMessage> MakeAPICall (HttpRequestMessage requestMessage)
+        public static async Task<HttpResponseMessage> MakeAPICall(this HttpRequestMessage requestMessage)
         {
             // Create a client
             HttpClient httpClient = new HttpClient();

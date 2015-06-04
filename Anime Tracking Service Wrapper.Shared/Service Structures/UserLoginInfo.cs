@@ -4,7 +4,7 @@ using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Service_Structures
 {
-    public class UserInfo
+    public class UserLoginInfo
     {
         public string Username;
         public string Password;
@@ -12,8 +12,8 @@ namespace AnimeTrackingServiceWrapper.Service_Structures
 
         public bool IsLoggedInUser { get { return !(string.IsNullOrWhiteSpace(AuthToken)); } }
 
-        public UserInfo() { }
-        public UserInfo(string username, string password, string authtoken = "")
+        public UserLoginInfo() { }
+        public UserLoginInfo(string username, string password, string authtoken = "")
         {
             Username = username;
             Password = password;

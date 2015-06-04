@@ -47,7 +47,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\Enumerators\SearchFilter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\LibraryObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Service Structures\ServiceID.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\UserInfo.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Service Structures\UserLoginInfo.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ServiceName.cs" />
   </ItemGroup>
 </Project>

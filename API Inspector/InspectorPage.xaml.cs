@@ -28,7 +28,7 @@ namespace API_Inspector
         AService HummingbirdV1;
 
         // Tasks
-        Task<UserInfo> userInfoTask;
+        Task<UserLoginInfo> userInfoTask;
         Task<AnimeObject> getAnimeTask;
         Task<List<AnimeObject>> searchAnimeTask;
         Task<List<LibraryObject>> getAnimeLibraryTask;
@@ -63,7 +63,7 @@ namespace API_Inspector
         {
             if (e.Parameter != null)
             {
-                var userInfo = ((UserInfo)e.Parameter);
+                var userInfo = ((UserLoginInfo)e.Parameter);
                 authenticate_authTokenTextBlock.Text = userInfo.AuthToken;
             }
         }

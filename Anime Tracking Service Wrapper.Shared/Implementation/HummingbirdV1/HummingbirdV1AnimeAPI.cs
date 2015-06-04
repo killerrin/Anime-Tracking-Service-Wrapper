@@ -134,7 +134,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 
         }
 
-        public override async Task<APIResponse> RemoveAnimeFromLibrary(UserInfo userInfo, string animeID, IProgress<APIProgressReport> progress)
+        public override async Task<APIResponse> RemoveAnimeFromLibrary(UserLoginInfo userInfo, string animeID, IProgress<APIProgressReport> progress)
         {
             if (!userInfo.IsLoggedInUser)
             {
@@ -158,6 +158,55 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                         new KeyValuePair<string,string>("auth_token", userInfo.AuthToken),//Consts.settings.auth_token),
                     });
 
+            HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
+            if (response.IsSuccessStatusCode)
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Anime Removed", APIResponse.Successful, APIResponse.Successful));
+                return APIResponse.Successful;
+            }
+
+            if (progress != null)
+                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
+            return APIResponse.Failed;
+        }
+
+        public override async Task<APIResponse> UpdateAnimeInLibrary(UserLoginInfo userInfo, LibraryObject libraryObject, IProgress<APIProgressReport> progress)
+        {
+            if (!userInfo.IsLoggedInUser)
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "This user is not logged in", APIResponse.Failed));
+                return APIResponse.Failed;
+            }
+            if (libraryObject == null)
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Please supply a valid LibraryObject", APIResponse.Failed));
+                return APIResponse.Failed;
+            }
+            if (libraryObject.Anime == null)
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "There is no valid AnimeObject attacked to the LibraryObject", APIResponse.Failed));
+                return APIResponse.Failed;
+            }
+
+            string compliantAnimeID = libraryObject.Anime.ID.ID.ConvertToAPIConpliantString(' ', '-');
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Post, Service.CreateAPIServiceUri("/libraries/" + compliantAnimeID));
+            requestMessage.Headers.Add("accept", "application/json");
+            requestMessage.Content = new FormUrlEncodedContent(new[]
+                        {
+                            new KeyValuePair<string,string>("auth_token", userInfo.AuthToken),
+                            new KeyValuePair<string,string>("status", Converters.LibrarySectionConverter.LibrarySelectionToString(libraryObject.Section)),
+                            new KeyValuePair<string,string>("privacy", Converters.PrivacySettingsConverter.PrivacySettingsToString(libraryObject.Private)), // Can be "public", "private"
+                            new KeyValuePair<string,string>("sane_rating_update", libraryObject.Rating.ToString()), // none = None Selected, 0-2 = Unhappy, 3 = Neutral, 4-5 = Happy
+                            //new KeyValuePair<string,string>("rewatching", (false.ToString()).ToLower()),
+                            new KeyValuePair<string,string>("rewatched_times", libraryObject.RewatchedTimes.ToString()),
+                            new KeyValuePair<string,string>("notes", libraryObject.Notes),
+                            new KeyValuePair<string,string>("episodes_watched", libraryObject.EpisodesWatched.ToString()),
+                            new KeyValuePair<string,string>("increment_episodes", (false.ToString()).ToLower())
+                        });
             HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
             if (response.IsSuccessStatusCode)
             {

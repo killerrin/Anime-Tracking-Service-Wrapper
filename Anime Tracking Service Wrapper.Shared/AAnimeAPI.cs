@@ -13,7 +13,8 @@ namespace AnimeTrackingServiceWrapper
 
         public abstract Task<AnimeObject> GetAnime(string animeID, IProgress<APIProgressReport> progress);
         public abstract Task<List<AnimeObject>> SearchAnime(string searchTerm, IProgress<APIProgressReport> progress);
-        public abstract Task<List<LibraryObject>> GetAnimeLibrary(string username, LibrarySection section, IProgress<APIProgressReport> progress); // UserInfo, LibrarySection
-        public abstract Task<APIResponse> RemoveAnimeFromLibrary(UserInfo userInfo, string animeID, IProgress<APIProgressReport> progress); // UserInfo, animeID
+        public abstract Task<List<LibraryObject>> GetAnimeLibrary(string username, LibrarySection section, IProgress<APIProgressReport> progress);
+        public abstract Task<APIResponse> RemoveAnimeFromLibrary(UserLoginInfo userInfo, string animeID, IProgress<APIProgressReport> progress);
+        public abstract Task<APIResponse> UpdateAnimeInLibrary(UserLoginInfo userInfo, LibraryObject libraryObject, IProgress<APIProgressReport> progress);
     }
 }

@@ -22,20 +22,20 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             MangaAPI = new HummingbirdV1MangaAPI(this);
         }
 
-        public override async Task<UserInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "")
+        public override async Task<UserLoginInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "")
         {
             if (string.IsNullOrWhiteSpace(username) ||
                 string.IsNullOrWhiteSpace(password))
             {
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "Please type in your username/password", APIResponse.InfoNotEntered));
-                return new UserInfo();
+                return new UserLoginInfo();
             }
             if (username.Contains("@"))
             {
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "Logging in through Email is not supported yet. Please use your Username", APIResponse.NotSupported));
-                return new UserInfo();
+                return new UserLoginInfo();
             }
 
             if (progress != null)
@@ -74,7 +74,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                     }
                 }
 
-                UserInfo userInfo = new UserInfo(username, password, userAuthToken);
+                UserLoginInfo userInfo = new UserLoginInfo(username, password, userAuthToken);
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "Successfully Logged In", APIResponse.Successful, userInfo));
 
@@ -92,7 +92,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                     progress.Report(new APIProgressReport(100.0, "Error connecting to hummingbird.me. Try again later", APIResponse.InvalidCredentials));
             }
 
-            return new UserInfo();
+            return new UserLoginInfo();
         }
     }
 }

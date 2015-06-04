@@ -14,7 +14,7 @@ namespace AnimeTrackingServiceWrapper
         public AAnimeAPI AnimeAPI;
         public AMangaAPI MangaAPI;
 
-        public abstract Task<UserInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "");
+        public abstract Task<UserLoginInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "");
 
         public Uri CreateAPIServiceUri(string endpoint) { return new Uri(Domain + endpoint, UriKind.Absolute); }
     }
