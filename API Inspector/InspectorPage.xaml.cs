@@ -32,6 +32,7 @@ namespace API_Inspector
         Task<AnimeObject> getAnimeTask;
         Task<List<AnimeObject>> searchAnimeTask;
         Task<List<LibraryObject>> getAnimeLibraryTask;
+        Task<List<AnimeObject>> getAnimeFavouritesTask;
 
         public InspectorPage()
         {
@@ -164,6 +165,30 @@ namespace API_Inspector
                     titles.Add(libraryObject.Anime.RomanjiTitle + ", " + libraryObject.Section.ToString());
 
                 getLibrary_TitlesListBox.ItemsSource = titles;
+            }
+        }
+        #endregion
+
+        #region Get Favourites
+        private async void GetFavourites_ButtonClick(object sender, RoutedEventArgs e)
+        {
+            APIProgress progress = new APIProgress();
+            progress.ProgressChanged += ProgressChanged_StatusReport;
+            progress.ProgressChanged += ProgressChanged_GetFavourites;
+
+            getAnimeFavouritesTask = HummingbirdV1.AnimeAPI.GetAnimeFavourites(getFavorites_usernameTextBox.Text, progress);
+        }
+
+        private void ProgressChanged_GetFavourites(object sender, APIProgressReport e)
+        {
+            if (e.Parameter != null)
+            {
+                var searchResults = ((List<AnimeObject>)e.Parameter);
+                List<string> titles = new List<string>();
+                foreach (var animeObject in searchResults)
+                    titles.Add(animeObject.RomanjiTitle);
+
+                getFavourites_TitlesListBox.ItemsSource = titles;
             }
         }
         #endregion

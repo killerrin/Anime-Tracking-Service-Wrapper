@@ -10,3 +10,4 @@ C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking S
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Debug\System.Net.Http.Primitives.xml
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).dll
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).pdb
+C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).csprojResolveAssemblyReference.cache

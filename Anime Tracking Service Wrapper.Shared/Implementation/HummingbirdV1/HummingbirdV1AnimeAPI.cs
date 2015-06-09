@@ -211,13 +211,52 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Anime Removed", APIResponse.Successful, APIResponse.Successful));
+                    progress.Report(new APIProgressReport(100.0, "Library Object Updated", APIResponse.Successful, APIResponse.Successful));
                 return APIResponse.Successful;
             }
 
             if (progress != null)
                 progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
             return APIResponse.Failed;
+        }
+
+        public override async Task<List<AnimeObject>> GetAnimeFavourites(string username, IProgress<APIProgressReport> progress)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Please enter a Username", APIResponse.Failed));
+                return new List<AnimeObject>();
+            }
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, Service.CreateAPIServiceUri("/users/" + username + "/favorite_anime"));
+            HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseAsString = await response.Content.ReadAsStringAsync();
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(50.0, "Recieved LibraryObjects From Server", APIResponse.ContinuingExecution));
+
+                JObject o = JObject.Parse("{\"anime\":" + responseAsString + "}");
+                AnimeObjectListHummingbirdV1 favouriteList = JsonConvert.DeserializeObject<AnimeObjectListHummingbirdV1>(o.ToString());
+
+
+                List<AnimeObject> convertedFavouriteAnimeObjects = new List<AnimeObject>();
+                foreach (var anime in favouriteList.anime)
+                {
+                    convertedFavouriteAnimeObjects.Add((AnimeObject)anime);
+                }
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedFavouriteAnimeObjects));
+                return convertedFavouriteAnimeObjects;
+            }
+
+            if (progress != null)
+                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
+            return new List<AnimeObject>();
         }
     }
 }

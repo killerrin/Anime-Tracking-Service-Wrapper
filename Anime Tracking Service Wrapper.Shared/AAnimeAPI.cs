@@ -16,5 +16,7 @@ namespace AnimeTrackingServiceWrapper
         public abstract Task<List<LibraryObject>> GetAnimeLibrary(string username, LibrarySection section, IProgress<APIProgressReport> progress);
         public abstract Task<APIResponse> RemoveAnimeFromLibrary(UserLoginInfo userInfo, string animeID, IProgress<APIProgressReport> progress);
         public abstract Task<APIResponse> UpdateAnimeInLibrary(UserLoginInfo userInfo, LibraryObject libraryObject, IProgress<APIProgressReport> progress);
+        public abstract Task<List<AnimeObject>> GetAnimeFavourites(string username, IProgress<APIProgressReport> progress);
+
     }
 }
