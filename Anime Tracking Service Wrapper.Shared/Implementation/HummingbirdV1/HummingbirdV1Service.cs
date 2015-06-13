@@ -1,6 +1,6 @@
-﻿using AnimeTrackingServiceWrapper.Helpers;
-using AnimeTrackingServiceWrapper.Service_Structures;
-using AnimeTrackingServiceWrapper.Service_Structures.Enumerators;
+﻿using AnimeTrackingServiceWrapper.Abstract;
+using AnimeTrackingServiceWrapper.Helpers;
+using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -75,11 +75,11 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                     }
                 }
 
-                UserLoginInfo userInfo = new UserLoginInfo(username, password, userAuthToken, LoginMethod.Username);
+                UserLoginInfo userLoginInfo = new UserLoginInfo(username, password, userAuthToken, LoginMethod.Username);
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Successfully Logged In", APIResponse.Successful, userInfo));
+                    progress.Report(new APIProgressReport(100.0, "Successfully Logged In", APIResponse.Successful, userLoginInfo, userLoginInfo));
 
-                return userInfo;
+                return userLoginInfo;
             }
 
             if (await response.Content.ReadAsStringAsync() == "{\"error\":\"Invalid credentials\"}")

@@ -24,6 +24,7 @@ namespace AnimeTrackingServiceWrapper
         public APIResponse CurrentAPIResonse;
 
         public object Parameter;
+        public object ParameterRaw;
 
         public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse)
         {
@@ -32,13 +33,15 @@ namespace AnimeTrackingServiceWrapper
             CurrentAPIResonse = apiResponse;
 
             Parameter = null;
+            ParameterRaw = null;
         }
-        public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse, object parameter)
+        public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse, object parameter, object parameterRaw)
         {
             Percentage = percentage;
             StatusMessage = statusMessage;
             CurrentAPIResonse = apiResponse;
             Parameter = parameter;
+            ParameterRaw = parameterRaw;
         }
     }
 }

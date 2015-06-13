@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.Abstract;
+using System;
 using System.Collections.Generic;
 using System.Text;
 

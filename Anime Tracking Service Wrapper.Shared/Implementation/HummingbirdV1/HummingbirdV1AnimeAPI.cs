@@ -1,4 +1,5 @@
-﻿using AnimeTrackingServiceWrapper.Service_Structures;
+﻿using AnimeTrackingServiceWrapper.Abstract;
+using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using AnimeTrackingServiceWrapper.Helpers;
 using System;
 using System.Collections.Generic;
@@ -6,7 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using Newtonsoft.Json.Linq;
-using AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Data_Structures;
+using AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models;
 using Newtonsoft.Json;
 
 namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
@@ -47,7 +48,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 AnimeObject convertedAnimeObject = (AnimeObject)animeObject;
 
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedAnimeObject));
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedAnimeObject, animeObject));
                 return convertedAnimeObject;
             }
 
@@ -85,7 +86,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 }
 
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedSearchResults));
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedSearchResults, hummingbirdSearchResults));
                 return convertedSearchResults;
             }
 
@@ -124,7 +125,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 }
 
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedLibraryObjects));
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedLibraryObjects, hummingbirdLibraryObjects));
                 return convertedLibraryObjects;
             }
 
@@ -136,7 +137,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 
         public override async Task<APIResponse> RemoveAnimeFromLibrary(UserLoginInfo userInfo, string animeID, IProgress<APIProgressReport> progress)
         {
-            if (!userInfo.IsLoggedInUser)
+            if (!userInfo.IsUserLoggedIn)
             {
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "This user is not logged in", APIResponse.Failed));
@@ -162,7 +163,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Anime Removed", APIResponse.Successful, APIResponse.Successful));
+                    progress.Report(new APIProgressReport(100.0, "Anime Removed", APIResponse.Successful, APIResponse.Successful, APIResponse.Successful));
                 return APIResponse.Successful;
             }
 
@@ -173,7 +174,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 
         public override async Task<APIResponse> UpdateAnimeInLibrary(UserLoginInfo userInfo, LibraryObject libraryObject, IProgress<APIProgressReport> progress)
         {
-            if (!userInfo.IsLoggedInUser)
+            if (!userInfo.IsUserLoggedIn)
             {
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "This user is not logged in", APIResponse.Failed));
@@ -211,7 +212,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             if (response.IsSuccessStatusCode)
             {
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Library Object Updated", APIResponse.Successful, APIResponse.Successful));
+                    progress.Report(new APIProgressReport(100.0, "Library Object Updated", APIResponse.Successful, APIResponse.Successful, APIResponse.Successful));
                 return APIResponse.Successful;
             }
 
@@ -250,7 +251,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 }
 
                 if (progress != null)
-                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedFavouriteAnimeObjects));
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedFavouriteAnimeObjects, favouriteList));
                 return convertedFavouriteAnimeObjects;
             }
 

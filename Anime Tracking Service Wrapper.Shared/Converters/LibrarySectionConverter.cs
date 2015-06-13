@@ -1,4 +1,4 @@
-﻿using AnimeTrackingServiceWrapper.Service_Structures;
+﻿using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -46,6 +46,31 @@ namespace AnimeTrackingServiceWrapper.Converters
 
                 case LibrarySection.All:
                 case LibrarySection.Favourites:
+                case LibrarySection.Recent:
+                case LibrarySection.Search:
+                case LibrarySection.None:
+                default:
+                    return "";
+            }
+        }
+
+        public static string LibrarySelectionToIntelligableString(LibrarySection librarySection)
+        {
+            switch (librarySection)
+            {
+                case LibrarySection.CurrentlyWatching:        return "is currently watching";
+                case LibrarySection.CurrentlyReading:         return "is currently reading";
+
+                case LibrarySection.PlanToWatch:              return "plans to watch";
+                case LibrarySection.PlanToRead:               return "plans to read";
+
+                case LibrarySection.Completed:                return "has completed";
+                case LibrarySection.OnHold:                   return "has placed on hold";
+                case LibrarySection.Dropped:                  return "has dropped";
+
+                case LibrarySection.Favourites:               return "has favourited";
+
+                case LibrarySection.All:
                 case LibrarySection.Recent:
                 case LibrarySection.Search:
                 case LibrarySection.None:
