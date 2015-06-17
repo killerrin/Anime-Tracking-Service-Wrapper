@@ -11,12 +11,14 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels.ActivityFeed
         public string Header;
         public string Content;
 
-        public ActivityFeedMediaUpdate(UserInfo user, ServiceID mediaID, Uri activityFeedImage, DateTime timestamp)
+        public ActivityFeedMediaUpdate(UserInfo user, ServiceID mediaID, Uri activityFeedImage, string header, string content, DateTime timestamp)
             : base()
         {
             User = user;
             MediaID = mediaID;
             ActivityFeedImage = activityFeedImage;
+            Header = header;
+            Content = content;
             Timestamp = timestamp;
         }
     }

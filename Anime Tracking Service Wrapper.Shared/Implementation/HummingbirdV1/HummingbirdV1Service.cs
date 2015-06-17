@@ -1,6 +1,9 @@
 ﻿using AnimeTrackingServiceWrapper.Abstract;
 using AnimeTrackingServiceWrapper.Helpers;
+using AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models;
 using AnimeTrackingServiceWrapper.UniversalServiceModels;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -12,15 +15,17 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 {
     public class HummingbirdV1Service : AService
     {
+        public readonly HummingbirdV1SocialAPIModule SocialAPI;
+
         public HummingbirdV1Service(string apiKey)
             :base()
         {
             Domain = "https://hummingbird.me/api/v1";
             APIKey = apiKey;
 
-
             AnimeAPI = new HummingbirdV1AnimeAPI(this);
             MangaAPI = new HummingbirdV1MangaAPI(this);
+            SocialAPI = new HummingbirdV1SocialAPIModule(this);
         }
 
         public override async Task<UserLoginInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "")
@@ -94,6 +99,40 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             }
 
             return new UserLoginInfo();
+        }
+
+        public override async Task<UserInfo> GetUserInfo(string username, IProgress<APIProgressReport> progress)
+        {
+            if (string.IsNullOrWhiteSpace(username))
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Please enter a Username", APIResponse.Failed));
+                return new UserInfo();
+            }
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, CreateAPIServiceUri("/users/" + username));
+            HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseAsString = await response.Content.ReadAsStringAsync();
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(50.0, "Recieved User From Server", APIResponse.ContinuingExecution));
+
+                JObject o = JObject.Parse(responseAsString);
+                UserObjectHummingbirdV1 rawUserInfo = JsonConvert.DeserializeObject<UserObjectHummingbirdV1>(o.ToString());
+
+                UserInfo convertedUserInfo = (UserInfo)rawUserInfo;
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedUserInfo, rawUserInfo));
+                return convertedUserInfo;
+            }
+
+            if (progress != null)
+                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
+            return new UserInfo();
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.UniversalServiceModels;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -25,5 +26,23 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
         public bool online { get; set; }
         public bool following { get; set; }
         public List<FavoriteObjectHummingbirdV1> favorites { get; set; }
+
+        public static explicit operator UserInfo(UserObjectHummingbirdV1 rawUserInfo)
+        {
+            UserInfo userInfo = new UserInfo();
+            userInfo.Username = rawUserInfo.name;
+
+            if (string.IsNullOrWhiteSpace(rawUserInfo.avatar))
+                userInfo.AvatarUrl = new Uri("http://www.killerrin.com", UriKind.Absolute);
+            else userInfo.AvatarUrl = new Uri(rawUserInfo.avatar, UriKind.Absolute);
+
+            userInfo.Location = rawUserInfo.location;
+
+            if (string.IsNullOrWhiteSpace(rawUserInfo.website))
+                userInfo.Website = new Uri("http://www.example.com", UriKind.Absolute);
+            else userInfo.Website = new Uri(rawUserInfo.website, UriKind.Absolute);
+
+            return userInfo;
+        }
     }
 }

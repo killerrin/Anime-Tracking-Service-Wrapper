@@ -80,6 +80,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 
                         ServiceID mediaID = new ServiceID(ServiceName.Hummingbird, MediaType.Anime, aFO.media.slug);
                         Uri activityFeedImage = new Uri(aFO.media.cover_image, UriKind.Absolute);
+                        convertedActivityFeed.Add(new ActivityFeedMediaUpdate(user, mediaID, activityFeedImage, aFO.media.title, intelligibleString, timestamp));
                     }
                     
                 }
@@ -98,10 +99,6 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
         {
             if (progress != null)
                 progress.Report(new APIProgressReport(100.0, "API Call is not supported on the V1 API", APIResponse.NotSupported));
-            return null;
-
-            if (progress != null)
-                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
             return null;
         }
     }
