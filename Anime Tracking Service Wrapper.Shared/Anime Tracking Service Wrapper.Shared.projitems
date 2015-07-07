@@ -44,6 +44,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ActivityFeed\AActivityFeedItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ActivityFeed\ActivityFeedMediaUpdate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\AnimeObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ConvertedRawAPICoupler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\Enumerators\ActivityFeedSection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\Enumerators\AgeRating.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\Enumerators\AiringStatus.cs" />

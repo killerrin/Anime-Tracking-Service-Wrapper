@@ -11,17 +11,17 @@ namespace AnimeTrackingServiceWrapper.Converters
         {
             switch (librarySectionString)
             {
-                case "currently-watching":      return LibrarySection.CurrentlyWatching;
-                case "currently-reading":       return LibrarySection.CurrentlyReading;
+                case "currently-watching": case "watching":     return LibrarySection.CurrentlyWatching;
+                case "currently-reading":  case "reading":      return LibrarySection.CurrentlyReading;
 
-                case "plan-to-watch":           return LibrarySection.PlanToWatch;
-                case "plan-to-read":            return LibrarySection.PlanToRead;
+                case "plan-to-watch": case "plan to watch": case "plantowatch":     return LibrarySection.PlanToWatch;
+                case "plan-to-read": case "plan to read": case "plantoread":        return LibrarySection.PlanToRead;
 
                 case "completed":               return LibrarySection.Completed;
-                case "on-hold":                 return LibrarySection.OnHold;
+                case "on-hold": case "onhold":  return LibrarySection.OnHold;
                 case "dropped":                 return LibrarySection.Dropped;
 
-                case "favourites":              return LibrarySection.Favourites;
+                case "favourites": case "favorites":    return LibrarySection.Favourites;
                 case "recent":                  return LibrarySection.Recent;
                 case "search":                  return LibrarySection.Search;
 

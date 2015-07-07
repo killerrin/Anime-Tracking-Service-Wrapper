@@ -1,4 +1,5 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.Universal_Service_Models;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -23,25 +24,28 @@ namespace AnimeTrackingServiceWrapper
         public string StatusMessage;
         public APIResponse CurrentAPIResonse;
 
-        public object Parameter;
-        public object ParameterRaw;
+        public ConvertedRawAPICoupler Parameter;
 
         public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse)
         {
             Percentage = percentage;
             StatusMessage = statusMessage;
             CurrentAPIResonse = apiResponse;
-
-            Parameter = null;
-            ParameterRaw = null;
+            Parameter = new ConvertedRawAPICoupler();
         }
-        public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse, object parameter, object parameterRaw)
+        public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse, ConvertedRawAPICoupler parameter)
         {
             Percentage = percentage;
             StatusMessage = statusMessage;
             CurrentAPIResonse = apiResponse;
             Parameter = parameter;
-            ParameterRaw = parameterRaw;
+        }
+        public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse, object convertedParameter, object rawParameter)
+        {
+            Percentage = percentage;
+            StatusMessage = statusMessage;
+            CurrentAPIResonse = apiResponse;
+            Parameter = new ConvertedRawAPICoupler(convertedParameter, rawParameter);
         }
     }
 }
