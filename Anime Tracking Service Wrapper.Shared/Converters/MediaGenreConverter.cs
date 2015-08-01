@@ -2,10 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+#if !DESKTOP
+using Windows.UI.Xaml.Data;
+#endif
 
 namespace AnimeTrackingServiceWrapper.Converters
 {
-    public static class MediaGenreConverter
+    public class MediaGenreConverter
+#if !DESKTOP
+        : IValueConverter
+#endif
     {
         public static MediaGenre StringToMediaGenre(string genreString)
         {
@@ -100,6 +106,20 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case MediaGenre.None:
                 default:                               return "";
             }
+        }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is MediaGenre)
+                return MediaGenreToString((MediaGenre)value);
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string)
+                return StringToMediaGenre((string)value);
+            return MediaGenre.None;
         }
     }
 }

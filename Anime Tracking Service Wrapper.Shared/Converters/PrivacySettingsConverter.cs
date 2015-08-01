@@ -3,9 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+#if !DESKTOP
+using Windows.UI.Xaml.Data;
+#endif
+
 namespace AnimeTrackingServiceWrapper.Converters
 {
-    public static class PrivacySettingsConverter
+    public class PrivacySettingsConverter
+#if !DESKTOP
+        : IValueConverter
+#endif
     {
         public static PrivacySettings BoolToPrivacySettings(bool privacySettingsBool)
         {
@@ -17,7 +24,7 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
-        public static PrivacySettings BoolToPrivacySettings(string privacySettingsString)
+        public static PrivacySettings StringToPrivacySettings(string privacySettingsString)
         {
             switch (privacySettingsString)
             {
@@ -47,6 +54,18 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is PrivacySettings)
+                return PrivacySettingsToString((PrivacySettings)value);
+            return "";
+        }
 
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string)
+                return StringToPrivacySettings((string)value);
+            return PrivacySettings.Public;
+        }
     }
 }

@@ -3,9 +3,16 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+#if !DESKTOP
+using Windows.UI.Xaml.Data;
+#endif
+
 namespace AnimeTrackingServiceWrapper.Converters
 {
-    public static class MediaTypeConverter
+    public class MediaTypeConverter
+#if !DESKTOP
+        : IValueConverter
+#endif
     {
         public static MediaType StringToMediaType(string mediaTypeString)
         {
@@ -54,6 +61,20 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case MediaType.Other:           return MediaType.Other.ToString();
                 default:                        return "";
             }
+        }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is MediaType)
+                return MediaTypeToString((MediaType)value);
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string)
+                return StringToMediaType((string)value);
+            return MediaType.Unknown;
         }
     }
 }

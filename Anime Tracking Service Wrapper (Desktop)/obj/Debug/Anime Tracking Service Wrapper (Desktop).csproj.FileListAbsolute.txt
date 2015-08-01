@@ -11,3 +11,10 @@ C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking S
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).dll
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).pdb
 C:\Users\Andrew\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).csprojResolveAssemblyReference.cache
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Debug\Anime Tracking Service Wrapper (Desktop).dll
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Debug\Anime Tracking Service Wrapper (Desktop).pdb
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Debug\Newtonsoft.Json.dll
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Debug\Newtonsoft.Json.xml
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).dll
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).pdb
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Debug\Anime Tracking Service Wrapper (Desktop).csprojResolveAssemblyReference.cache

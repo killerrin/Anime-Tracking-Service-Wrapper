@@ -2,12 +2,18 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+#if !DESKTOP
+using Windows.UI.Xaml.Data;
+#endif
 
 namespace AnimeTrackingServiceWrapper.Converters
 {
-    public static class LibrarySectionConverter
+    public class LibrarySectionConverter
+#if !DESKTOP
+        : IValueConverter
+#endif
     {
-        public static LibrarySection StringToLibrarySelection(string librarySectionString)
+        public static LibrarySection StringToLibrarySection(string librarySectionString)
         {
             switch (librarySectionString)
             {
@@ -30,7 +36,7 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
-        public static string LibrarySelectionToString(LibrarySection librarySection)
+        public static string LibrarySectionToString(LibrarySection librarySection)
         {
             switch (librarySection)
             {
@@ -54,7 +60,7 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
-        public static string LibrarySelectionToIntelligableString(LibrarySection librarySection)
+        public static string LibrarySectionToIntelligableString(LibrarySection librarySection)
         {
             switch (librarySection)
             {
@@ -77,6 +83,20 @@ namespace AnimeTrackingServiceWrapper.Converters
                 default:
                     return "";
             }
+        }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is LibrarySection)
+                return LibrarySectionToIntelligableString((LibrarySection)value);
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string)
+                return StringToLibrarySection((string)value);
+            return LibrarySection.None;
         }
     }
 }

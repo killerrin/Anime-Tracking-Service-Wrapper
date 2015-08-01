@@ -24,6 +24,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Converters\PrivacySettingsConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIWebClient.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Helpers\ModelBase.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1SocialAPIModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\AnimeObjectHummingbirdV1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\FavoriteObjectHummingbirdV1.cs" />

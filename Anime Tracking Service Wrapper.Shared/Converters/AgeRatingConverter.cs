@@ -2,10 +2,16 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
+#if !DESKTOP
+using Windows.UI.Xaml.Data;
+#endif
 
 namespace AnimeTrackingServiceWrapper.Converters
 {
-    public static class AgeRatingConverter
+    public class AgeRatingConverter
+#if !DESKTOP
+        : IValueConverter
+#endif
     {
         public static AgeRating StringToAgeRating(string ageRatingString)
         {
@@ -34,6 +40,20 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case AgeRating.Unrated:
                 default:                    return "Unrated";
             }
+        }
+
+        public object Convert(object value, Type targetType, object parameter, string language)
+        {
+            if (value is AgeRating)
+                return AgeRatingToString((AgeRating)value);
+            return "";
+        }
+
+        public object ConvertBack(object value, Type targetType, object parameter, string language)
+        {
+            if (value is string)
+                return StringToAgeRating((string)value);
+            return AgeRating.Unrated;
         }
     }
 }

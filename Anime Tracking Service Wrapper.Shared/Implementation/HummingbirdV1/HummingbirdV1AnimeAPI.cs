@@ -104,7 +104,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 return new List<LibraryObject>();
             }
 
-            string statusString = Converters.LibrarySectionConverter.LibrarySelectionToString(section);
+            string statusString = Converters.LibrarySectionConverter.LibrarySectionToString(section);
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, Service.CreateAPIServiceUri("/users/" + username + "/library?status=" + statusString));
             HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
 
@@ -199,7 +199,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             requestMessage.Content = new FormUrlEncodedContent(new[]
                         {
                             new KeyValuePair<string,string>("auth_token", userInfo.AuthToken),
-                            new KeyValuePair<string,string>("status", Converters.LibrarySectionConverter.LibrarySelectionToString(libraryObject.Section)),
+                            new KeyValuePair<string,string>("status", Converters.LibrarySectionConverter.LibrarySectionToString(libraryObject.Section)),
                             new KeyValuePair<string,string>("privacy", Converters.PrivacySettingsConverter.PrivacySettingsToString(libraryObject.Private)), // Can be "public", "private"
                             new KeyValuePair<string,string>("sane_rating_update", libraryObject.Rating.ToString()), // none = None Selected, 0-2 = Unhappy, 3 = Neutral, 4-5 = Happy
                             //new KeyValuePair<string,string>("rewatching", (false.ToString()).ToLower()),

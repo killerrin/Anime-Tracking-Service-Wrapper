@@ -70,8 +70,8 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                         string intelligibleString = "";
                         if (aFO.substories[0].substory_type == "watchlist_status_update")
                         {
-                            LibrarySection librarySection = Converters.LibrarySectionConverter.StringToLibrarySelection(aFO.substories[0].new_status);
-                            intelligibleString = user.Username + " " + Converters.LibrarySectionConverter.LibrarySelectionToIntelligableString(librarySection);
+                            LibrarySection librarySection = Converters.LibrarySectionConverter.StringToLibrarySection(aFO.substories[0].new_status);
+                            intelligibleString = user.Username + " " + Converters.LibrarySectionConverter.LibrarySectionToIntelligableString(librarySection);
                         }
                         else if (aFO.substories[0].substory_type == "watched_episode")
                         {

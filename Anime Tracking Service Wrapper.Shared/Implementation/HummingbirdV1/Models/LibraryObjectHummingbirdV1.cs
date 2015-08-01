@@ -43,7 +43,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             libraryObject.Rating                    = Convert.ToDouble(oldObject.rating.value);
             libraryObject.RewatchedTimes            = oldObject.rewatched_times;
             libraryObject.Rewatching                = oldObject.rewatching;
-            libraryObject.Section                   = Converters.LibrarySectionConverter.StringToLibrarySelection(oldObject.status);
+            libraryObject.Section                   = Converters.LibrarySectionConverter.StringToLibrarySection(oldObject.status);
 
             return libraryObject;
         }
