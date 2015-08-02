@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\ASocialAPIModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)APIProgress.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)APIResponse.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Converters\ActivityFeedItemConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\AgeRatingConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\AiringStatusConverter.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Converters\LibrarySectionConverter.cs" />

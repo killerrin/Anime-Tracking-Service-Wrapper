@@ -15,7 +15,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             set
             {
                 m_service = value;
-                RaisePropertyChanged("Service");
+                RaisePropertyChanged(nameof(Service));
             }
         }
 
@@ -25,7 +25,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             get { return m_mediaType; }
             set {
                 m_mediaType = value;
-                RaisePropertyChanged("MediaType");
+                RaisePropertyChanged(nameof(MediaType));
             }
         }
 
@@ -37,7 +37,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             {
                 if (m_id == value) return;
                 m_id = value;
-                RaisePropertyChanged("ID");
+                RaisePropertyChanged(nameof(ID));
             }
         }
 
@@ -47,7 +47,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (!string.IsNullOrWhiteSpace(ID)) return Int32.Parse(ID);
                 return 0;
             }
-            set { ID = value.ToString(); RaisePropertyChanged("IDAsInt"); }
+            set { ID = value.ToString(); RaisePropertyChanged(nameof(IDAsInt)); }
         }
 
         public ServiceID(ServiceName name, MediaType mediaType, string id)

@@ -1,21 +1,72 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.UniversalServiceModels
 {
-    public class UserInfo
+    public class UserInfo : ModelBase
     {
-        public string Username;
-        public Uri AvatarUrl;
+        private string m_username = "";
+        public string Username
+        {
+            get { return m_username; }
+            set
+            {
+                if (m_username == value) return;
+                m_username = value;
+                RaisePropertyChanged(nameof(Username));
+            }
+        }
 
-        public string Location;
-        public Uri Website;
+        private Uri m_avatarURL = new Uri("http://www.example.com", UriKind.Absolute);
+        public Uri AvatarUrl
+        {
+            get { return m_avatarURL; }
+            set
+            {
+                if (m_avatarURL == value) return;
+                m_avatarURL = value;
+                RaisePropertyChanged(nameof(AvatarUrl));
+            }
+        }
+
+        private string m_location = "";
+        public string Location
+        {
+            get { return m_location; }
+            set
+            {
+                if (m_location == value) return;
+                m_location = value;
+                RaisePropertyChanged(nameof(Location));
+            }
+        }
+
+        private Uri m_website = new Uri("http://www.example.com", UriKind.Absolute);
+        public Uri Website
+        {
+            get { return m_website; }
+            set
+            {
+                if (m_website == value) return;
+                m_website = value;
+                RaisePropertyChanged(nameof(Website));
+            }
+        }
 
         public UserInfo()
         {
             Username = "";
-            AvatarUrl = new Uri("http://www.killerrin.com", UriKind.Absolute);
+            AvatarUrl = new Uri("http://www.example.com", UriKind.Absolute);
+
+            Location = "";
+            Website = new Uri("http://www.example.com", UriKind.Absolute);
+        }
+        public UserInfo(string username)
+        {
+            Username = username;
+            AvatarUrl = new Uri("http://www.example.com", UriKind.Absolute);
 
             Location = "";
             Website = new Uri("http://www.example.com", UriKind.Absolute);

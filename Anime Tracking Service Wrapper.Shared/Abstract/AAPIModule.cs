@@ -1,12 +1,34 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Abstract
 {
-    public class AAPIModule
+    public class AAPIModule : ModelBase
     {
-        public AService Service { get; protected set; }
-        public bool Supported { get; protected set; }
+        private AService m_service;
+        public AService Service
+        {
+            get { return m_service; }
+            protected set
+            {
+                //if (m_service == value) return;
+                m_service = value;
+                RaisePropertyChanged(nameof(Service));
+            }
+        }
+
+        private bool m_supported = false;
+        public bool Supported
+        {
+            get { return m_supported; }
+            protected set
+            {
+                //if (m_supported == value) return;
+                m_supported = value;
+                RaisePropertyChanged(nameof(Supported));
+            }
+        }
     }
 }

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Helpers
 {
-    public class ModelBase : INotifyPropertyChanged
+    public abstract class ModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
         protected void RaisePropertyChanged(string property = "")
