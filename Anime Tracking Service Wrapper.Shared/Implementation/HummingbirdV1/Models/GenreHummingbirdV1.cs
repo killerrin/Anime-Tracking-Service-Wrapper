@@ -1,11 +1,21 @@
-﻿using System;
+﻿using AnimeTrackingServiceWrapper.Helpers;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 {
-    public class GenreHummingbirdV1
+    public class GenreHummingbirdV1 : ModelBase
     {
-        public string name { get; set; }
+        private string m_name = "";
+        public string name
+        {
+            get { return m_name; }
+            set
+            {
+                m_name = value;
+                RaisePropertyChanged(nameof(name));
+            }
+        }
     }
 }

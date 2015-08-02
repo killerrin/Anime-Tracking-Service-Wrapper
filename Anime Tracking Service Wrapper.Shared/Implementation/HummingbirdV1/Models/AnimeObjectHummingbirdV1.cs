@@ -1,32 +1,221 @@
-﻿using AnimeTrackingServiceWrapper.UniversalServiceModels;
+﻿using AnimeTrackingServiceWrapper.Helpers;
+using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 {
-    public class AnimeObjectHummingbirdV1
+    public class AnimeObjectHummingbirdV1 : ModelBase
     {
-        public int id { get; set; }
-        public int? mal_id { get; set; }
-        public string slug { get; set; }
-        public string status { get; set; }
-        public string url { get; set; }
-        public string title { get; set; }
-        public string alternate_title { get; set; }
-        public int? episode_count { get; set; }
-        public int? episode_length { get; set; }
-        public string cover_image { get; set; }
-        public string synopsis { get; set; }
-        public string show_type { get; set; }
-        public string started_airing { get; set; }
-        public string finished_airing { get; set; }
-        public double community_rating { get; set; }
-        public string age_rating { get; set; }
-        public List<GenreHummingbirdV1> genres { get; set; }
+        private int m_id = 0;
+        public int id
+        {
+            get { return m_id; }
+            set
+            {
+                m_id = value;
+                RaisePropertyChanged(nameof(id));
+            }
+        }
 
-        public int fav_rank { get; set; }
-        public int fav_id { get; set; }
+        public int? m_mal_id = 0;
+        public int? mal_id
+        {
+            get { return m_mal_id; }
+            set
+            {
+                m_mal_id = value;
+                RaisePropertyChanged(nameof(mal_id));
+            }
+        }
+
+        public string m_slug = "";
+        public string slug
+        {
+            get { return m_slug; }
+            set
+            {
+                m_slug = value;
+                RaisePropertyChanged(nameof(slug));
+            }
+        }
+
+        public string m_status = "";
+        public string status
+        {
+            get { return m_status; }
+            set
+            {
+                m_status = value;
+                RaisePropertyChanged(nameof(status));
+            }
+        }
+
+        public string m_url = "";
+        public string url
+        {
+            get { return m_url; }
+            set
+            {
+                m_url = value;
+                RaisePropertyChanged(nameof(url));
+            }
+        }
+
+        public string m_title = "";
+        public string title
+        {
+            get { return m_title; }
+            set
+            {
+                m_title = value;
+                RaisePropertyChanged(nameof(title));
+            }
+        }
+
+        public string m_alternate_title = "";
+        public string alternate_title
+        {
+            get { return m_alternate_title; }
+            set
+            {
+                m_alternate_title = value;
+                RaisePropertyChanged(nameof(alternate_title));
+            }
+        }
+
+        public int? m_episode_count = 0;
+        public int? episode_count
+        {
+            get { return m_episode_count; }
+            set
+            {
+                m_episode_count = value;
+                RaisePropertyChanged(nameof(episode_count));
+            }
+        }
+
+        public int? m_episode_length = 0;
+        public int? episode_length
+        {
+            get { return m_episode_length; }
+            set
+            {
+                m_episode_length = value;
+                RaisePropertyChanged(nameof(episode_length));
+            }
+        }
+
+        public string m_cover_image = "";
+        public string cover_image
+        {
+            get { return m_cover_image; }
+            set
+            {
+                m_cover_image = value;
+                RaisePropertyChanged(nameof(cover_image));
+            }
+        }
+
+        public string m_synopsis = "";
+        public string synopsis
+        {
+            get { return m_synopsis; }
+            set
+            {
+                m_synopsis = value;
+                RaisePropertyChanged(nameof(synopsis));
+            }
+        }
+
+        public string m_show_type = "";
+        public string show_type
+        {
+            get { return m_show_type; }
+            set
+            {
+                m_show_type = value;
+                RaisePropertyChanged(nameof(show_type));
+            }
+        }
+
+        public string m_started_airing = "";
+        public string started_airing
+        {
+            get { return m_started_airing; }
+            set
+            {
+                m_started_airing = value;
+                RaisePropertyChanged(nameof(started_airing));
+            }
+        }
+
+        public string m_finished_airing = "";
+        public string finished_airing
+        {
+            get { return m_finished_airing; }
+            set
+            {
+                m_finished_airing = value;
+                RaisePropertyChanged(nameof(finished_airing));
+            }
+        }
+
+        public double m_community_rating = 0.0;
+        public double community_rating
+        {
+            get { return m_community_rating; }
+            set
+            {
+                m_community_rating = value;
+                RaisePropertyChanged(nameof(community_rating));
+            }
+        }
+
+        public string m_age_rating = "";
+        public string age_rating
+        {
+            get { return m_age_rating; }
+            set
+            {
+                m_age_rating = value;
+                RaisePropertyChanged(nameof(age_rating));
+            }
+        }
+
+        public List<GenreHummingbirdV1> m_genres = new List<GenreHummingbirdV1>();
+        public List<GenreHummingbirdV1> genres
+        {
+            get { return m_genres; }
+            set
+            {
+                m_genres = value;
+                RaisePropertyChanged(nameof(genres));
+            }
+        }
+
+        public int m_fav_rank = 0;
+        public int fav_rank
+        {
+            get { return m_fav_rank; }
+            set
+            {
+                m_fav_rank = value;
+                RaisePropertyChanged(nameof(fav_rank));
+            }
+        }
+
+        public int m_fav_id = 0;
+        public int fav_id
+        {
+            get { return m_fav_id; }
+            set
+            {
+                m_fav_id = value;
+                RaisePropertyChanged(nameof(fav_id));
+            }
+        }
 
         public static explicit operator AnimeObject(AnimeObjectHummingbirdV1 oldObject)
         {

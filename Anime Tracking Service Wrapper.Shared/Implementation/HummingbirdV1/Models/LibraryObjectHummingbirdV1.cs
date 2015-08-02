@@ -1,24 +1,144 @@
-﻿using AnimeTrackingServiceWrapper.UniversalServiceModels;
+﻿using AnimeTrackingServiceWrapper.Helpers;
+using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using System;
 using System.Collections.Generic;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 {
-    public class LibraryObjectHummingbirdV1
+    public class LibraryObjectHummingbirdV1 : ModelBase
     {
-        public int id { get; set; }
-        public int episodes_watched { get; set; }
-        public string last_watched { get; set; }
-        public string updated_at { get; set; }
-        public int rewatched_times { get; set; }
-        public string notes { get; set; }
-        public bool? notes_present { get; set; }
-        public string status { get; set; }
-        public bool @private { get; set; }
-        public bool rewatching { get; set; }
-        public AnimeObjectHummingbirdV1 anime { get; set; }
-        public RatingHummingbirdV1 rating { get; set; }
+        private int m_id = 0;
+        public int id
+        {
+            get { return m_id; }
+            set
+            {
+                m_id = value;
+                RaisePropertyChanged(nameof(id));
+            }
+        }
+
+        private int m_episodes_watched = 0;
+        public int episodes_watched
+        {
+            get { return m_episodes_watched; }
+            set
+            {
+                m_episodes_watched = value;
+                RaisePropertyChanged(nameof(episodes_watched));
+            }
+        }
+
+        private string m_last_watched = "";
+        public string last_watched
+        {
+            get { return m_last_watched; }
+            set
+            {
+                m_last_watched = value;
+                RaisePropertyChanged(nameof(last_watched));
+            }
+        }
+
+        private string m_updated_at = "";
+        public string updated_at
+        {
+            get { return m_updated_at; }
+            set
+            {
+                m_updated_at = value;
+                RaisePropertyChanged(nameof(updated_at));
+            }
+        }
+
+        private int m_rewatched_times = 0;
+        public int rewatched_times
+        {
+            get { return m_rewatched_times; }
+            set
+            {
+                m_rewatched_times = value;
+                RaisePropertyChanged(nameof(rewatched_times));
+            }
+        }
+
+        private string m_notes = "";
+        public string notes
+        {
+            get { return m_notes; }
+            set
+            {
+                m_notes = value;
+                RaisePropertyChanged(nameof(notes));
+            }
+        }
+
+        private bool? m_notes_present = false;
+        public bool? notes_present
+        {
+            get { return m_notes_present; }
+            set
+            {
+                m_notes_present = value;
+                RaisePropertyChanged(nameof(notes_present));
+            }
+        }
+
+        private string m_status = "";
+        public string status
+        {
+            get { return m_status; }
+            set
+            {
+                m_status = value;
+                RaisePropertyChanged(nameof(status));
+            }
+        }
+
+        private bool m_private = false;
+        public bool @private
+        {
+            get { return m_private; }
+            set
+            {
+                m_private = value;
+                RaisePropertyChanged(nameof(@private));
+            }
+        }
+
+        private bool m_rewatching = false;
+        public bool rewatching
+        {
+            get { return m_rewatching; }
+            set
+            {
+                m_rewatching = value;
+                RaisePropertyChanged(nameof(rewatching));
+            }
+        }
+
+        private AnimeObjectHummingbirdV1 m_anime = new AnimeObjectHummingbirdV1();
+        public AnimeObjectHummingbirdV1 anime
+        {
+            get { return m_anime; }
+            set
+            {
+                m_anime = value;
+                RaisePropertyChanged(nameof(anime));
+            }
+        }
+
+        private RatingHummingbirdV1 m_rating = new RatingHummingbirdV1();
+        public RatingHummingbirdV1 rating
+        {
+            get { return m_rating; }
+            set
+            {
+                m_rating = value;
+                RaisePropertyChanged(nameof(rating));
+            }
+        }
 
         public static explicit operator LibraryObject(LibraryObjectHummingbirdV1 oldObject)
         {
