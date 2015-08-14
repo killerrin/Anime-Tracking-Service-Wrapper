@@ -43,4 +43,3 @@ C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Se
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows Phone)\obj\Debug\qualifiers.txt
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows Phone)\obj\Debug\qualifiers.txt.intermediate
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows Phone)\obj\Debug\MultipleQualifiersPerDimensionFound.txt
-C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows Phone)\obj\Debug\Anime Tracking Service Wrapper.WP.csprojResolveAssemblyReference.cache

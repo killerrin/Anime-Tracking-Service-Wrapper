@@ -1,6 +1,7 @@
 ﻿using AnimeTrackingServiceWrapper.Universal_Service_Models;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper
@@ -20,11 +21,11 @@ namespace AnimeTrackingServiceWrapper
     
     public struct APIProgressReport
     {
-        public double Percentage;
-        public string StatusMessage;
-        public APIResponse CurrentAPIResonse;
+        public double Percentage { get; set; }
+        public string StatusMessage { get; set; }
+        public APIResponse CurrentAPIResonse { get; set; }
 
-        public ConvertedRawAPICoupler Parameter;
+        public ConvertedRawAPICoupler Parameter { get; set; }
 
         public APIProgressReport(double percentage, string statusMessage, APIResponse apiResponse)
         {
@@ -46,6 +47,11 @@ namespace AnimeTrackingServiceWrapper
             StatusMessage = statusMessage;
             CurrentAPIResonse = apiResponse;
             Parameter = new ConvertedRawAPICoupler(convertedParameter, rawParameter);
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0} | {1}, {2}", CurrentAPIResonse, Percentage, StatusMessage);
         }
     }
 }

@@ -1,7 +1,6 @@
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Debug\Anime Tracking Service Wrapper.UAP.dll
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Debug\Anime Tracking Service Wrapper.UAP.pdb
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Debug\Anime Tracking Service Wrapper.UAP.pri
-C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Debug\Anime Tracking Service Wrapper.UAP.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Debug\Anime Tracking Service Wrapper.UAP.dll
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Debug\Anime Tracking Service Wrapper.UAP.pdb
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Debug\ResourceHandlingTask.state

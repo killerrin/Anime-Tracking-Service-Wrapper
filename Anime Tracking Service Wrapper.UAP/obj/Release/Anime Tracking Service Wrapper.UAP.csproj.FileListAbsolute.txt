@@ -1,0 +1,17 @@
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Release\Anime Tracking Service Wrapper.UAP.dll
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Release\Anime Tracking Service Wrapper.UAP.pdb
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\bin\Release\Anime Tracking Service Wrapper.UAP.pri
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\Anime Tracking Service Wrapper.UAP.dll
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\Anime Tracking Service Wrapper.UAP.pdb
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\ResourceHandlingTask.state
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\priconfig.xml
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\priconfig.xml.intermediate
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\layout.resfiles
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\layout.resfiles.intermediate
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\resources.resfiles
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\resources.resfiles.intermediate
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\pri.resfiles
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\pri.resfiles.intermediate
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\qualifiers.txt
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\qualifiers.txt.intermediate
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\MultipleQualifiersPerDimensionFound.txt
