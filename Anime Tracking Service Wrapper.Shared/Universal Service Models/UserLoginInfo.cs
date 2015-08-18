@@ -53,6 +53,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (m_authtoken == value) return;
                 m_authtoken = value;
                 RaisePropertyChanged(nameof(AuthToken));
+                RaisePropertyChanged(nameof(IsUserLoggedIn));
             }
         }
 

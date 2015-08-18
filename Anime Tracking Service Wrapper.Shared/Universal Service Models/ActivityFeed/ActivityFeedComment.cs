@@ -6,23 +6,23 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels.ActivityFeed
 {
     public class ActivityFeedComment : AActivityFeedItem
     {
-        private string m_content = "";
-        public string Content
+        private string m_comment = "";
+        public string Comment
         {
-            get { return m_content; }
+            get { return m_comment; }
             set
             {
-                if (m_content == value) return;
-                m_content = value;
-                RaisePropertyChanged(nameof(Content));
+                if (m_comment == value) return;
+                m_comment = value;
+                RaisePropertyChanged(nameof(Comment));
             }
         }
 
-        public ActivityFeedComment(UserInfo commentingUser, string content, DateTime timestamp)
+        public ActivityFeedComment(UserInfo commentingUser, string comment, DateTime timestamp)
             : base()
         {
             User = commentingUser;
-            Content = content;
+            Comment = comment;
             Timestamp = timestamp;
         }
     }

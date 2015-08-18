@@ -1,4 +1,4 @@
-﻿using AnimeTrackingServiceWrapper.Universal_Service_Models;
+﻿using AnimeTrackingServiceWrapper.UniversalServiceModels;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;

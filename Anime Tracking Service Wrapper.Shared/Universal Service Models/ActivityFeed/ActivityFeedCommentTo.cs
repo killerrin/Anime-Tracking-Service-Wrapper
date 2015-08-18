@@ -18,24 +18,24 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels.ActivityFeed
             }
         }
 
-        private string m_content = "";
-        public string Content
+        private string m_comment = "";
+        public string Comment
         {
-            get { return m_content; }
+            get { return m_comment; }
             set
             {
-                if (m_content == value) return;
-                m_content = value;
-                RaisePropertyChanged(nameof(Content));
+                if (m_comment == value) return;
+                m_comment = value;
+                RaisePropertyChanged(nameof(Comment));
             }
         }
 
-        public ActivityFeedCommentTo(UserInfo sendingUser, UserInfo recievingUser, string content, DateTime timestamp)
+        public ActivityFeedCommentTo(UserInfo sendingUser, UserInfo recievingUser, string comment, DateTime timestamp)
             : base()
         {
             User = sendingUser;
             RecievingUser = recievingUser;
-            Content = content;
+            Comment = comment;
             Timestamp = timestamp;
         }
     }

@@ -60,7 +60,7 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
-        public static string LibrarySectionToIntelligableString(LibrarySection librarySection)
+        public static string LibrarySectionToIntelligableSentenceString(LibrarySection librarySection)
         {
             switch (librarySection)
             {
@@ -81,7 +81,32 @@ namespace AnimeTrackingServiceWrapper.Converters
                 case LibrarySection.Search:
                 case LibrarySection.None:
                 default:
-                    return "";
+                    return "has added to library";// + LibrarySectionToIntelligableString(librarySection);
+            }
+        }
+
+        public static string LibrarySectionToIntelligableString(LibrarySection librarySection)
+        {
+            switch (librarySection)
+            {
+                case LibrarySection.CurrentlyWatching: return "currently watching";
+                case LibrarySection.CurrentlyReading: return "currently reading";
+
+                case LibrarySection.PlanToWatch: return "plan to watch";
+                case LibrarySection.PlanToRead: return "plan to read";
+
+                case LibrarySection.Completed: return "completed";
+                case LibrarySection.OnHold: return "on hold";
+                case LibrarySection.Dropped: return "dropped";
+
+                case LibrarySection.Favourites: return "favourite";
+
+                case LibrarySection.All:
+                case LibrarySection.Recent:
+                case LibrarySection.Search:
+                case LibrarySection.None:
+                default:
+                    return librarySection.ToString();
             }
         }
 

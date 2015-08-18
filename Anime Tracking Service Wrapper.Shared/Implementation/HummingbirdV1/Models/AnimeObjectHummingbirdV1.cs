@@ -19,7 +19,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int? m_mal_id = 0;
+        private int? m_mal_id = 0;
         public int? mal_id
         {
             get { return m_mal_id; }
@@ -30,7 +30,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_slug = "";
+        private string m_slug = "";
         public string slug
         {
             get { return m_slug; }
@@ -41,7 +41,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_status = "";
+        private string m_status = "";
         public string status
         {
             get { return m_status; }
@@ -52,7 +52,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_url = "";
+        private string m_url = "";
         public string url
         {
             get { return m_url; }
@@ -63,7 +63,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_title = "";
+        private string m_title = "";
         public string title
         {
             get { return m_title; }
@@ -74,7 +74,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_alternate_title = "";
+        private string m_alternate_title = "";
         public string alternate_title
         {
             get { return m_alternate_title; }
@@ -85,7 +85,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int? m_episode_count = 0;
+        private int? m_episode_count = 0;
         public int? episode_count
         {
             get { return m_episode_count; }
@@ -96,7 +96,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int? m_episode_length = 0;
+        private int? m_episode_length = 0;
         public int? episode_length
         {
             get { return m_episode_length; }
@@ -107,7 +107,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_cover_image = "";
+        private string m_cover_image = "";
         public string cover_image
         {
             get { return m_cover_image; }
@@ -118,7 +118,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_synopsis = "";
+        private string m_synopsis = "";
         public string synopsis
         {
             get { return m_synopsis; }
@@ -129,7 +129,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_show_type = "";
+        private string m_show_type = "";
         public string show_type
         {
             get { return m_show_type; }
@@ -140,7 +140,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_started_airing = "";
+        private string m_started_airing = "";
         public string started_airing
         {
             get { return m_started_airing; }
@@ -151,7 +151,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_finished_airing = "";
+        private string m_finished_airing = "";
         public string finished_airing
         {
             get { return m_finished_airing; }
@@ -162,7 +162,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public double m_community_rating = 0.0;
+        private double m_community_rating = 0.0;
         public double community_rating
         {
             get { return m_community_rating; }
@@ -173,7 +173,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_age_rating = "";
+        private string m_age_rating = "";
         public string age_rating
         {
             get { return m_age_rating; }
@@ -184,7 +184,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public List<GenreHummingbirdV1> m_genres = new List<GenreHummingbirdV1>();
+        private List<GenreHummingbirdV1> m_genres = new List<GenreHummingbirdV1>();
         public List<GenreHummingbirdV1> genres
         {
             get { return m_genres; }
@@ -195,7 +195,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int m_fav_rank = 0;
+        private int m_fav_rank = 0;
         public int fav_rank
         {
             get { return m_fav_rank; }
@@ -206,7 +206,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int m_fav_id = 0;
+        private int m_fav_id = 0;
         public int fav_id
         {
             get { return m_fav_id; }

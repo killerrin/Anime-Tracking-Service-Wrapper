@@ -7,6 +7,7 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
@@ -22,13 +23,13 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             Supported = true;
         }
 
-        public override async Task<List<AActivityFeedItem>> GetActivityFeed(string username, int paginationIndex, IProgress<APIProgressReport> progress)
+        public override async Task<ObservableCollection<AActivityFeedItem>> GetActivityFeed(string username, int paginationIndex, IProgress<APIProgressReport> progress)
         {
             if (string.IsNullOrWhiteSpace(username))
             {
                 if (progress != null)
                     progress.Report(new APIProgressReport(100.0, "Please enter a Username", APIResponse.Failed));
-                return new List<AActivityFeedItem>();
+                return new ObservableCollection<AActivityFeedItem>();
             }
 
             HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, Service.CreateAPIServiceUri("/users/" + username + "/feed?page=" + paginationIndex));
@@ -44,7 +45,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 JObject o = JObject.Parse("{\"status_feed\":" + responseAsString + "}");
                 StoryObjectListHummingbirdV1 activityFeedRaw = JsonConvert.DeserializeObject<StoryObjectListHummingbirdV1>(o.ToString());
 
-                List<AActivityFeedItem> convertedActivityFeed = new List<AActivityFeedItem>();
+                ObservableCollection<AActivityFeedItem> convertedActivityFeed = new ObservableCollection<AActivityFeedItem>();
                 foreach(var aFO in activityFeedRaw.status_feed)
                 {
                     string tts = aFO.updated_at.Substring(0, aFO.updated_at.Length - 1);
@@ -71,7 +72,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                         if (aFO.substories[0].substory_type == "watchlist_status_update")
                         {
                             LibrarySection librarySection = Converters.LibrarySectionConverter.StringToLibrarySection(aFO.substories[0].new_status);
-                            intelligibleString = user.Username + " " + Converters.LibrarySectionConverter.LibrarySectionToIntelligableString(librarySection);
+                            intelligibleString = user.Username + " " + Converters.LibrarySectionConverter.LibrarySectionToIntelligableSentenceString(librarySection);
                         }
                         else if (aFO.substories[0].substory_type == "watched_episode")
                         {
@@ -92,7 +93,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
 
             if (progress != null)
                 progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
-            return new List<AActivityFeedItem>();
+            return new ObservableCollection<AActivityFeedItem>();
         }
 
         public override async Task<AActivityFeedItem> PostStatusUpdate(UserLoginInfo userLoginInfo, string message, IProgress<APIProgressReport> progress)

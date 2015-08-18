@@ -51,7 +51,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public bool? m_self_post = false;
+        private bool? m_self_post = false;
         public bool? self_post
         {
             get { return m_self_post; }

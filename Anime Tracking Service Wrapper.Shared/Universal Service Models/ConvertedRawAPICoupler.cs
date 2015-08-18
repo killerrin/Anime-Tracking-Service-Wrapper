@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace AnimeTrackingServiceWrapper.Universal_Service_Models
+namespace AnimeTrackingServiceWrapper.UniversalServiceModels
 {
     public class ConvertedRawAPICoupler
     {

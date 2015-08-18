@@ -8,7 +8,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 {
     public class UserObjectHummingbirdV1 : ModelBase
     {
-        public string m_name = "";
+        private string m_name = "";
         public string name
         {
             get { return m_name; }
@@ -19,7 +19,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_waifu = "";
+        private string m_waifu = "";
         public string waifu
         {
             get { return m_waifu; }
@@ -30,7 +30,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_waifu_or_husbando = "";
+        private string m_waifu_or_husbando = "";
         public string waifu_or_husbando
         {
             get { return m_waifu_or_husbando; }
@@ -41,7 +41,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_waifu_slug = "";
+        private string m_waifu_slug = "";
         public string waifu_slug
         {
             get { return m_waifu_slug; }
@@ -52,7 +52,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_waifu_char_id = "";
+        private string m_waifu_char_id = "";
         public string waifu_char_id
         {
             get { return m_waifu_char_id; }
@@ -63,7 +63,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_location = "";
+        private string m_location = "";
         public string location
         {
             get { return m_location; }
@@ -73,7 +73,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
                 RaisePropertyChanged(nameof(location));
             }
         }
-        public string m_website = "";
+        private string m_website = "";
         public string website
         {
             get { return m_website; }
@@ -84,7 +84,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_avatar = "";
+        private string m_avatar = "";
         public string avatar
         {
             get { return m_avatar; }
@@ -95,7 +95,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_cover_image = "";
+        private string m_cover_image = "";
         public string cover_image
         {
             get { return m_cover_image; }
@@ -106,7 +106,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_about = "";
+        private string m_about = "";
         public string about
         {
             get { return m_about; }
@@ -117,7 +117,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_bio = "";
+        private string m_bio = "";
         public string bio
         {
             get { return m_bio; }
@@ -128,7 +128,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int m_karma = 0;
+        private int m_karma = 0;
         public int karma
         {
             get { return m_karma; }
@@ -139,7 +139,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public int m_life_spent_on_anime = 0;
+        private int m_life_spent_on_anime = 0;
         public int life_spent_on_anime
         {
             get { return m_life_spent_on_anime; }
@@ -150,7 +150,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public bool m_show_adult_content = false;
+        private bool m_show_adult_content = false;
         public bool show_adult_content
         {
             get { return m_show_adult_content; }
@@ -161,7 +161,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_title_language_preference = "";
+        private string m_title_language_preference = "";
         public string title_language_preference
         {
             get { return m_title_language_preference; }
@@ -172,7 +172,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public string m_last_library_update = "";
+        private string m_last_library_update = "";
         public string last_library_update
         {
             get { return m_last_library_update; }
@@ -183,7 +183,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public bool m_online = true;
+        private bool m_online = true;
         public bool online
         {
             get { return m_online; }
@@ -194,7 +194,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public bool m_following = false;
+        private bool m_following = false;
         public bool following
         {
             get { return m_following; }
@@ -205,7 +205,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             }
         }
 
-        public List<FavoriteObjectHummingbirdV1> m_favorites = new List<FavoriteObjectHummingbirdV1>();
+        private List<FavoriteObjectHummingbirdV1> m_favorites = new List<FavoriteObjectHummingbirdV1>();
         public List<FavoriteObjectHummingbirdV1> favorites
         {
             get { return m_favorites; }
@@ -215,6 +215,30 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
                 RaisePropertyChanged(nameof(favorites));
             }
         }
+
+        #region Extensions
+        public bool HasWaifu
+        {
+            get { return !string.IsNullOrWhiteSpace(waifu); }
+        }
+
+        public Uri WaifuImageUri
+        {
+            get { return GetWaifuPictureURI(); }
+        }
+
+        public Uri GetWaifuPictureURI()
+        {
+            string beginningUrl = "http://static.hummingbird.me/characters/images/000/0";
+            string firstTwo = "" + waifu_char_id[0] + waifu_char_id[1] + "/";
+            string lastThree = "" + waifu_char_id[2] + waifu_char_id[3] + waifu_char_id[4] + '/';
+            string afterCutID = "thumb_small/";
+            string fullWaifuIDExtension = waifu_char_id + ".jpg?1375255551";
+
+            string fullUrl = beginningUrl + firstTwo + lastThree + afterCutID + fullWaifuIDExtension;
+            return new Uri(fullUrl, UriKind.Absolute);
+        }
+        #endregion
 
         public static explicit operator UserInfo(UserObjectHummingbirdV1 rawUserInfo)
         {

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.Helpers
@@ -8,7 +9,7 @@ namespace AnimeTrackingServiceWrapper.Helpers
     public abstract class ModelBase : INotifyPropertyChanged
     {
         public event PropertyChangedEventHandler PropertyChanged;
-        protected void RaisePropertyChanged(string property = "")
+        protected void RaisePropertyChanged([CallerMemberName]string property = "")
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(property));

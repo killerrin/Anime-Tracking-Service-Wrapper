@@ -1,6 +1,7 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Text;
 
 namespace AnimeTrackingServiceWrapper.UniversalServiceModels.ActivityFeed
@@ -31,16 +32,31 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels.ActivityFeed
             }
         }
 
-        private List<AActivityFeedItem> m_replies = new List<AActivityFeedItem>();
-        public List<AActivityFeedItem> Replies
+        private ObservableCollection<AActivityFeedItem> m_replies = new ObservableCollection<AActivityFeedItem>();
+        public ObservableCollection<AActivityFeedItem> Replies
         {
             get { return m_replies; }
             set
             {
                 if (m_replies == value) return;
+
                 m_replies = value;
+                m_replies.CollectionChanged += M_replies_CollectionChanged;
+
                 RaisePropertyChanged(nameof(Replies));
+                if (HasReplies) RaisePropertyChanged(nameof(HasReplies));
             }
+        }
+
+        private void M_replies_CollectionChanged(object sender, System.Collections.Specialized.NotifyCollectionChangedEventArgs e)
+        {
+            if (HasReplies)
+                RaisePropertyChanged(nameof(HasReplies));
+        }
+
+        public bool HasReplies
+        {
+            get { return Replies.Count > 0; }
         }
     }
 }
