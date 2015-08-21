@@ -238,5 +238,38 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             FavouriteRank = 0;
             Genres = new List<MediaGenre>();
         }
+
+        public bool DoesNameFitSearch(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm)) return false;
+
+            if (!string.IsNullOrWhiteSpace(EnglishTitle))
+                if (EnglishTitle.Contains(searchTerm))
+                    return true;
+            if (!string.IsNullOrWhiteSpace(RomanjiTitle))
+                if (RomanjiTitle.Contains(searchTerm))
+                    return true;
+            if (!string.IsNullOrWhiteSpace(KanjiTitle))
+                if (KanjiTitle.Contains(searchTerm))
+                    return true;
+
+            if (ID != null)
+                if (!string.IsNullOrWhiteSpace(ID.ID))
+                    if (ID.ID.Contains(searchTerm))
+                        return true;
+            if (ID2 != null)
+                if (!string.IsNullOrWhiteSpace(ID2.ID))
+                    if (ID2.ID.Contains(searchTerm))
+                        return true;
+
+            foreach (var id in AlternateIDs)
+            {
+                if (!string.IsNullOrWhiteSpace(id.ID))
+                    if (id.ID.Contains(searchTerm))
+                        return true;
+            }
+
+            return false;
+        }
     }
 }

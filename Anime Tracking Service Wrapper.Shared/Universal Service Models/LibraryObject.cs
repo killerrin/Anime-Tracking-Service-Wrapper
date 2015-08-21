@@ -137,6 +137,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
         public LibraryObject(AnimeObject anime)
         {
             Anime = anime;
+            Service = Anime.Service;
         }
     }
 }

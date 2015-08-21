@@ -15,23 +15,27 @@ namespace AnimeTrackingServiceWrapper.Converters
     {
         public static LibrarySection StringToLibrarySection(string librarySectionString)
         {
-            switch (librarySectionString)
+            string libSectionLower = librarySectionString.ToLower();
+
+            switch (libSectionLower)
             {
-                case "currently-watching": case "watching":     return LibrarySection.CurrentlyWatching;
-                case "currently-reading":  case "reading":      return LibrarySection.CurrentlyReading;
+                case "currently-watching": case "watching": case "currently watching":  return LibrarySection.CurrentlyWatching;
+                case "currently-reading":  case "reading":  case "currently reading":   return LibrarySection.CurrentlyReading;
 
                 case "plan-to-watch": case "plan to watch": case "plantowatch":     return LibrarySection.PlanToWatch;
                 case "plan-to-read": case "plan to read": case "plantoread":        return LibrarySection.PlanToRead;
 
                 case "completed":               return LibrarySection.Completed;
-                case "on-hold": case "onhold":  return LibrarySection.OnHold;
+                case "on-hold": case "onhold": case "on hold":  return LibrarySection.OnHold;
                 case "dropped":                 return LibrarySection.Dropped;
 
-                case "favourites": case "favorites":    return LibrarySection.Favourites;
+                case "favourite": case "favourites": case "favorites": case "favorite": return LibrarySection.Favourites;
                 case "recent":                  return LibrarySection.Recent;
                 case "search":                  return LibrarySection.Search;
 
                 case "all":                     return LibrarySection.All;
+
+                case "none":
                 default:                        return LibrarySection.None;
             }
         }
@@ -60,7 +64,7 @@ namespace AnimeTrackingServiceWrapper.Converters
             }
         }
 
-        public static string LibrarySectionToIntelligableSentenceString(LibrarySection librarySection)
+        public static string LibrarySectionToIntelligableStatusString(LibrarySection librarySection)
         {
             switch (librarySection)
             {
@@ -89,17 +93,17 @@ namespace AnimeTrackingServiceWrapper.Converters
         {
             switch (librarySection)
             {
-                case LibrarySection.CurrentlyWatching: return "currently watching";
-                case LibrarySection.CurrentlyReading: return "currently reading";
+                case LibrarySection.CurrentlyWatching: return "Currently Watching";
+                case LibrarySection.CurrentlyReading: return "Currently Reading";
 
-                case LibrarySection.PlanToWatch: return "plan to watch";
-                case LibrarySection.PlanToRead: return "plan to read";
+                case LibrarySection.PlanToWatch: return "Plan to Watch";
+                case LibrarySection.PlanToRead: return "Plan to Read";
 
-                case LibrarySection.Completed: return "completed";
-                case LibrarySection.OnHold: return "on hold";
-                case LibrarySection.Dropped: return "dropped";
+                case LibrarySection.Completed: return "Completed";
+                case LibrarySection.OnHold: return "On Hold";
+                case LibrarySection.Dropped: return "Dropped";
 
-                case LibrarySection.Favourites: return "favourite";
+                case LibrarySection.Favourites: return "Favourite";
 
                 case LibrarySection.All:
                 case LibrarySection.Recent:
