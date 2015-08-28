@@ -29,6 +29,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (m_username == value) return;
                 m_username = value;
                 RaisePropertyChanged(nameof(Username));
+                RaisePropertyChanged(nameof(HasUsername));
             }
         }
 
@@ -41,6 +42,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (m_password == value) return;
                 m_password = value;
                 RaisePropertyChanged(nameof(Password));
+                RaisePropertyChanged(nameof(HasPassword));
             }
         }
 
@@ -53,11 +55,16 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (m_authtoken == value) return;
                 m_authtoken = value;
                 RaisePropertyChanged(nameof(AuthToken));
+                RaisePropertyChanged(nameof(HasAuthToken));
                 RaisePropertyChanged(nameof(IsUserLoggedIn));
             }
         }
 
-        public bool IsUserLoggedIn { get { return !(string.IsNullOrWhiteSpace(AuthToken)); } }
+        public bool HasUsername { get { return !(string.IsNullOrWhiteSpace(Username)); } }
+        public bool HasPassword { get { return !(string.IsNullOrWhiteSpace(Password)); } }
+        public bool HasAuthToken { get { return !(string.IsNullOrWhiteSpace(AuthToken)); } }
+        public bool IsUserLoggedIn { get { return HasAuthToken; } }
+
 
         public UserLoginInfo() { }
         public UserLoginInfo(string username, string password, string authtoken = "", LoginMethod loginMethod = LoginMethod.None)

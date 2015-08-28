@@ -243,29 +243,37 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
         {
             if (string.IsNullOrWhiteSpace(searchTerm)) return false;
 
-            if (!string.IsNullOrWhiteSpace(EnglishTitle))
-                if (EnglishTitle.Contains(searchTerm))
-                    return true;
+            // Set to lower to allow more accurate searches
+            searchTerm = searchTerm.ToLower();
+
+            // Titles
             if (!string.IsNullOrWhiteSpace(RomanjiTitle))
-                if (RomanjiTitle.Contains(searchTerm))
+                if (RomanjiTitle.ToLower().Contains(searchTerm) ||
+                    RomanjiTitle.ToLower().SimilarTo(searchTerm) > 80.0)
+                    return true;
+            if (!string.IsNullOrWhiteSpace(EnglishTitle))
+                if (EnglishTitle.ToLower().Contains(searchTerm) ||
+                    EnglishTitle.ToLower().SimilarTo(searchTerm) > 80.0)
                     return true;
             if (!string.IsNullOrWhiteSpace(KanjiTitle))
-                if (KanjiTitle.Contains(searchTerm))
+                if (KanjiTitle.ToLower().Contains(searchTerm) ||
+                    KanjiTitle.ToLower().SimilarTo(searchTerm) > 80.0)
                     return true;
 
+            // IDs
             if (ID != null)
                 if (!string.IsNullOrWhiteSpace(ID.ID))
-                    if (ID.ID.Contains(searchTerm))
+                    if (ID.ID.ToLower().Contains(searchTerm))
                         return true;
             if (ID2 != null)
                 if (!string.IsNullOrWhiteSpace(ID2.ID))
-                    if (ID2.ID.Contains(searchTerm))
+                    if (ID2.ID.ToLower().Contains(searchTerm))
                         return true;
 
             foreach (var id in AlternateIDs)
             {
                 if (!string.IsNullOrWhiteSpace(id.ID))
-                    if (id.ID.Contains(searchTerm))
+                    if (id.ID.ToLower().Contains(searchTerm))
                         return true;
             }
 
