@@ -43,6 +43,18 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
+        private string m_biography = "";
+        public string Biography
+        {
+            get { return m_biography; }
+            set
+            {
+                if (m_biography == value) return;
+                m_biography = value;
+                RaisePropertyChanged(nameof(Biography));
+            }
+        }
+
         private Uri m_website = new Uri("http://www.example.com", UriKind.Absolute);
         public Uri Website
         {

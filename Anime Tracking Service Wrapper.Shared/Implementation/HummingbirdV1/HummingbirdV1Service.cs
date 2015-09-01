@@ -134,5 +134,48 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
                 progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
             return new UserInfo();
         }
+
+        public override async Task<List<UserInfo>> SearchUsers(string searchTerms, IProgress<APIProgressReport> progress)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerms))
+            {
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Please enter a search", APIResponse.Failed));
+                return new List<UserInfo>();
+            }
+
+            HttpRequestMessage requestMessage = new HttpRequestMessage(HttpMethod.Get, "https://hummingbird.me/search.json?depth=full&scope=users&query=" + searchTerms);
+            HttpResponseMessage response = await APIWebClient.MakeAPICall(requestMessage);
+
+            if (response.IsSuccessStatusCode)
+            {
+                string responseAsString = await response.Content.ReadAsStringAsync();
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(50.0, "Recieved User From Server", APIResponse.ContinuingExecution));
+
+                JObject o = JObject.Parse(responseAsString);
+                UserSearchHummingbird_UndocumentedV1 rawUserSearch = JsonConvert.DeserializeObject<UserSearchHummingbird_UndocumentedV1>(o.ToString());
+
+                List<UserInfo> convertedSearchResult = new List<UserInfo>();
+                foreach (var searchResult in rawUserSearch.search)
+                {
+                    if (searchResult.type != "user") continue;
+                    UserInfo user = new UserInfo();
+                    user.AvatarUrl = new Uri(searchResult.image, UriKind.Absolute);
+                    user.Username = searchResult.title;
+                    user.Biography = searchResult.desc;
+                    convertedSearchResult.Add(user);
+                }
+
+                if (progress != null)
+                    progress.Report(new APIProgressReport(100.0, "Converted Successfully", APIResponse.Successful, convertedSearchResult, rawUserSearch));
+                return convertedSearchResult;
+            }
+
+            if (progress != null)
+                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
+            return new List<UserInfo>();
+        }
     }
 }

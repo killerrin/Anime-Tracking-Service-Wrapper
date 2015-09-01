@@ -59,6 +59,7 @@ namespace AnimeTrackingServiceWrapper.Abstract
 
         public abstract Task<UserLoginInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "");
         public abstract Task<UserInfo> GetUserInfo(string username, IProgress<APIProgressReport> progress);
+        public abstract Task<List<UserInfo>> SearchUsers(string searchTerms, IProgress<APIProgressReport> progress);
 
         public Uri CreateAPIServiceUri(string endpoint) { return new Uri(Domain + endpoint, UriKind.Absolute); }
     }

@@ -24,4 +24,14 @@ namespace AnimeTrackingServiceWrapper
         InfoNotEntered,
         InvalidCredentials,
     }
+
+    public static class APIResponseHelpers
+    {
+        public static bool IsAPIResponseFailed(APIResponse response)
+        {
+            if (response == APIResponse.Successful) return false;
+            else if (response == APIResponse.ContinuingExecution) return false;
+            return true;
+        }
+    }
 }

@@ -250,6 +250,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             else userInfo.AvatarUrl = new Uri(rawUserInfo.avatar, UriKind.Absolute);
 
             userInfo.Location = rawUserInfo.location;
+            userInfo.Biography = rawUserInfo.bio;
 
             if (string.IsNullOrWhiteSpace(rawUserInfo.website))
                 userInfo.Website = new Uri("http://www.example.com", UriKind.Absolute);
