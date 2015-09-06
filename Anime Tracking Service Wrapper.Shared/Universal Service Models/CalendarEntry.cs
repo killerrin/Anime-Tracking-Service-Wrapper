@@ -31,5 +31,21 @@ namespace AnimeTrackingServiceWrapper.Universal_Service_Models
                 RaisePropertyChanged(nameof(Date));
             }
         }
+
+        public CalendarEntry()
+        {
+
+        }
+
+        public CalendarEntry(DateTime date, string title)
+        {
+            Date = date;
+            Title = title;
+        }
+
+        public override string ToString()
+        {
+            return string.Format("{0}, {1}", Title, Date);
+        }
     }
 }
