@@ -11,6 +11,7 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\AAnimeAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\AAPIModule.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Abstract\ACalendarAPIModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\AMangaAPI.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\AService.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Abstract\ASocialAPIModule.cs" />
@@ -27,8 +28,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIHelpers.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\APIWebClient.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Helpers\ModelBase.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1CalendarAPIModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\HummingbirdV1SocialAPIModule.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\AnimeObjectHummingbirdV1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\CalendarDatasetHummingbird_Undocumented.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\FavoriteObjectHummingbirdV1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\GenreHummingbirdV1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Implementation\HummingbirdV1\Models\HummingbirdActivityFeedPost_UndocumentedV1.cs" />
@@ -49,6 +52,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ActivityFeed\AActivityFeedItem.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ActivityFeed\ActivityFeedMediaUpdate.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\AnimeObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\CalendarEntry.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\ConvertedRawAPICoupler.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\Enumerators\ActivityFeedSection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Universal Service Models\Enumerators\AgeRating.cs" />

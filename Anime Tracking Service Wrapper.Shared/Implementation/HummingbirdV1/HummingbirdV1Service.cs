@@ -16,6 +16,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
     public class HummingbirdV1Service : AService
     {
         public readonly HummingbirdV1SocialAPIModule SocialAPI;
+        public readonly HummingbirdV1CalendarAPIModule CalendarAPI;
 
         public HummingbirdV1Service(string apiKey)
             :base()
@@ -26,6 +27,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             AnimeAPI = new HummingbirdV1AnimeAPI(this);
             MangaAPI = new HummingbirdV1MangaAPI(this);
             SocialAPI = new HummingbirdV1SocialAPIModule(this);
+            CalendarAPI = new HummingbirdV1CalendarAPIModule(this);
         }
 
         public override async Task<UserLoginInfo> Login(string username, string password, IProgress<APIProgressReport> progress, string otherAuth = "")

@@ -15,3 +15,4 @@ C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Se
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\qualifiers.txt
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\qualifiers.txt.intermediate
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper.UAP\obj\Release\Anime Tracking Service Wrapper.UAP.csprojResolveAssemblyReference.cache
