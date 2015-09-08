@@ -1,5 +1,6 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
 using AnimeTrackingServiceWrapper.UniversalServiceModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -217,11 +218,13 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
         }
 
         #region Extensions
+        [JsonIgnore]
         public bool HasWaifu
         {
             get { return !string.IsNullOrWhiteSpace(waifu); }
         }
 
+        [JsonIgnore]
         public Uri WaifuImageUri
         {
             get { return GetWaifuPictureURI(); }
@@ -229,6 +232,9 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 
         public Uri GetWaifuPictureURI()
         {
+            if (string.IsNullOrWhiteSpace(waifu_char_id))
+                return new Uri("https://hummingbird.me/default_avatar.jpg", UriKind.Absolute);
+
             string beginningUrl = "http://static.hummingbird.me/characters/images/000/0";
             string firstTwo = "" + waifu_char_id[0] + waifu_char_id[1] + "/";
             string lastThree = "" + waifu_char_id[2] + waifu_char_id[3] + waifu_char_id[4] + '/';
