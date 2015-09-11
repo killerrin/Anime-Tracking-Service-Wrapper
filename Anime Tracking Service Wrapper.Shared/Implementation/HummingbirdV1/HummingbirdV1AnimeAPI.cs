@@ -168,7 +168,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1
             }
 
             if (progress != null)
-                progress.Report(new APIProgressReport(100.0, "API Call wasn't successul", APIResponse.Failed));
+                progress.Report(new APIProgressReport(100.0, "API Call wasn't successful", APIResponse.Failed));
             return APIResponse.Failed;
         }
 

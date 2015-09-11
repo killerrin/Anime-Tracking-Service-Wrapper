@@ -1,4 +1,5 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,10 +8,10 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
 {
     public class AnimeObject : ModelBase
     {
-        public ServiceName Service;
+        public ServiceName Service = ServiceName.Unknown;
 
         #region Properties
-        private ServiceID m_id;
+        private ServiceID m_id = ServiceID.Empty;
         public ServiceID ID
         {
             get { return m_id; }
@@ -22,7 +23,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
-        private ServiceID m_id2;
+        private ServiceID m_id2 = ServiceID.Empty;
         public ServiceID ID2
         {
             get { return m_id2; }
@@ -69,6 +70,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 RaisePropertyChanged(nameof(WebUrl));
             }
         }
+        [JsonIgnore]
         public string WebUrlString
         {
             get { return WebUrl.OriginalString; }
@@ -137,6 +139,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
+        [JsonIgnore]
         public string CoverImageUrlString
         {
             get { return m_coverImageUrl.OriginalString; }
@@ -239,28 +242,11 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             Genres = new List<MediaGenre>();
         }
 
-        public bool DoesNameFitSearch(string searchTerm)
+
+        public bool DoesIDFitSearch(string searchTerm)
         {
             if (string.IsNullOrWhiteSpace(searchTerm)) return false;
 
-            // Set to lower to allow more accurate searches
-            searchTerm = searchTerm.ToLower();
-
-            // Titles
-            if (!string.IsNullOrWhiteSpace(RomanjiTitle))
-                if (RomanjiTitle.ToLower().Contains(searchTerm) ||
-                    RomanjiTitle.ToLower().SimilarTo(searchTerm) > 80.0)
-                    return true;
-            if (!string.IsNullOrWhiteSpace(EnglishTitle))
-                if (EnglishTitle.ToLower().Contains(searchTerm) ||
-                    EnglishTitle.ToLower().SimilarTo(searchTerm) > 80.0)
-                    return true;
-            if (!string.IsNullOrWhiteSpace(KanjiTitle))
-                if (KanjiTitle.ToLower().Contains(searchTerm) ||
-                    KanjiTitle.ToLower().SimilarTo(searchTerm) > 80.0)
-                    return true;
-
-            // IDs
             if (ID != null)
                 if (!string.IsNullOrWhiteSpace(ID.ID))
                     if (ID.ID.ToLower().Contains(searchTerm))
@@ -277,6 +263,36 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                         return true;
             }
 
+            return false;
+        }
+        public bool DoesNameFitSearch(string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(searchTerm)) return false;
+
+            // Set to lower to allow more accurate searches
+            searchTerm = searchTerm.ToLower();
+
+            // Titles
+            if (SearchString(RomanjiTitle, searchTerm))
+                return true;
+            if (SearchString(EnglishTitle, searchTerm))
+                return true;
+            if (SearchString(KanjiTitle, searchTerm))
+                return true;
+
+            if (DoesIDFitSearch(searchTerm))
+                return true;
+
+            return false;
+        }
+
+        protected bool SearchString(string str, string searchTerm)
+        {
+            if (string.IsNullOrWhiteSpace(str)) return false;
+            str = str.ToLower();
+
+            if (str.Contains(searchTerm) || str.SimilarTo(searchTerm) > 80.0)
+                return true;
             return false;
         }
     }

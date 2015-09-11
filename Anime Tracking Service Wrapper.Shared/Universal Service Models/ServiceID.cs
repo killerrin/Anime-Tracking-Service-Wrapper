@@ -1,4 +1,5 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,6 +9,9 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
 {
     public class ServiceID : ModelBase
     {
+        [JsonIgnore]
+        public static ServiceID Empty { get { return new ServiceID(); } }
+
         private ServiceName m_service = ServiceName.Unknown;
         public ServiceName Service
         {
@@ -41,6 +45,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
+        [JsonIgnore]
         public int IDAsInt { 
             get
             {
@@ -50,6 +55,10 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             set { ID = value.ToString(); RaisePropertyChanged(nameof(IDAsInt)); }
         }
 
+        public ServiceID()
+        {
+
+        }
         public ServiceID(ServiceName name, MediaType mediaType, string id)
         {
             Service = name;

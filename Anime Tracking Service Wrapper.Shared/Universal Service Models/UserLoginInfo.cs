@@ -1,5 +1,6 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
 using AnimeTrackingServiceWrapper.UniversalServiceModels;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -33,7 +34,9 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
+        [JsonIgnore]
         private string m_password = "";
+        [JsonIgnore]
         public string Password
         {
             get { return m_password; }
@@ -60,9 +63,13 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
+        [JsonIgnore]
         public bool HasUsername { get { return !(string.IsNullOrWhiteSpace(Username)); } }
+        [JsonIgnore]
         public bool HasPassword { get { return !(string.IsNullOrWhiteSpace(Password)); } }
+        [JsonIgnore]
         public bool HasAuthToken { get { return !(string.IsNullOrWhiteSpace(AuthToken)); } }
+        [JsonIgnore]
         public bool IsUserLoggedIn { get { return HasAuthToken; } }
 
 

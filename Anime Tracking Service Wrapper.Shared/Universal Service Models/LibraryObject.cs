@@ -1,4 +1,5 @@
 ﻿using AnimeTrackingServiceWrapper.Helpers;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -7,7 +8,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
 {
     public class LibraryObject : ModelBase
     {
-        private ServiceName m_service = new ServiceName();
+        private ServiceName m_service = ServiceName.Unknown;
         public ServiceName Service
         {
             get { return m_service; }
