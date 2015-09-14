@@ -148,6 +148,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             {
                 m_life_spent_on_anime = value;
                 RaisePropertyChanged(nameof(life_spent_on_anime));
+                RaisePropertyChanged(nameof(LifeSpentOnAnimeInMinutes));
             }
         }
 
@@ -181,6 +182,7 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
             {
                 m_last_library_update = value;
                 RaisePropertyChanged(nameof(last_library_update));
+                RaisePropertyChanged(nameof(LastLibraryUpdate));
             }
         }
 
@@ -218,6 +220,24 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
         }
 
         #region Extensions
+        [JsonIgnore]
+        public TimeSpan LifeSpentOnAnimeInMinutes
+        {
+            get { return TimeSpan.FromMinutes(life_spent_on_anime); }
+        }
+
+        [JsonIgnore]
+        public DateTime LastLibraryUpdate
+        {
+            get
+            {
+                DateTime result;
+                if (DateTime.TryParse(last_library_update, out result))
+                    return result;
+                return DateTime.MinValue;
+            }
+        }
+
         [JsonIgnore]
         public bool HasWaifu
         {
