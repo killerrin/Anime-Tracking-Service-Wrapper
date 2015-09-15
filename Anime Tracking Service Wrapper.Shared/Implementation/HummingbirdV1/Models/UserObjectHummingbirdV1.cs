@@ -252,17 +252,23 @@ namespace AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.Models
 
         public Uri GetWaifuPictureURI()
         {
-            if (string.IsNullOrWhiteSpace(waifu_char_id))
-                return new Uri("https://hummingbird.me/default_avatar.jpg", UriKind.Absolute);
+            try
+            {
+                if (string.IsNullOrWhiteSpace(waifu_char_id))
+                    return new Uri("https://hummingbird.me/default_avatar.jpg", UriKind.Absolute);
+                if (waifu_char_id.Length < 5)
+                    return new Uri("https://hummingbird.me/default_avatar.jpg", UriKind.Absolute);
 
-            string beginningUrl = "http://static.hummingbird.me/characters/images/000/0";
-            string firstTwo = "" + waifu_char_id[0] + waifu_char_id[1] + "/";
-            string lastThree = "" + waifu_char_id[2] + waifu_char_id[3] + waifu_char_id[4] + '/';
-            string afterCutID = "thumb_small/";
-            string fullWaifuIDExtension = waifu_char_id + ".jpg?1375255551";
+                string beginningUrl = "http://static.hummingbird.me/characters/images/000/0";
+                string firstTwo = "" + waifu_char_id[0] + waifu_char_id[1] + "/";
+                string lastThree = "" + waifu_char_id[2] + waifu_char_id[3] + waifu_char_id[4] + '/';
+                string afterCutID = "thumb_small/";
+                string fullWaifuIDExtension = waifu_char_id + ".jpg?1375255551";
 
-            string fullUrl = beginningUrl + firstTwo + lastThree + afterCutID + fullWaifuIDExtension;
-            return new Uri(fullUrl, UriKind.Absolute);
+                string fullUrl = beginningUrl + firstTwo + lastThree + afterCutID + fullWaifuIDExtension;
+                return new Uri(fullUrl, UriKind.Absolute);
+            }
+            catch (Exception) { return new Uri("https://hummingbird.me/default_avatar.jpg", UriKind.Absolute); }
         }
         #endregion
 

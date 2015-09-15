@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Anime Tracking Service Wrapper (WinPhone)</name>
+    </assembly>
+    <members>
+        <member name="M:AnimeTrackingServiceWrapper.Implementation.HummingbirdV1.HummingbirdV1SocialAPIModule.PostStatusUpdate(AnimeTrackingServiceWrapper.UniversalServiceModels.UserLoginInfo,AnimeTrackingServiceWrapper.UniversalServiceModels.UserInfo,AnimeTrackingServiceWrapper.UniversalServiceModels.UserInfo,System.String,System.IProgress{AnimeTrackingServiceWrapper.APIProgressReport})">
+            <summary>
+            Doesn't Work
+            </summary>
+            <param name="senderUserLoginInfo">The Senders LoginInfo</param>
+            <param name="senderUserInfo">The Senders UserInfo</param>
+            <param name="receiverUserInfo">The Recievers UserInfo</param>
+            <param name="message">The Message to post</param>
+            <param name="progress">To report progress and completion</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

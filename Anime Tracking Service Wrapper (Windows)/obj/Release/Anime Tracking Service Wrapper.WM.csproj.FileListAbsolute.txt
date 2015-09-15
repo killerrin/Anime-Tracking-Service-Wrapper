@@ -7,7 +7,6 @@ C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Se
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Release\Newtonsoft.Json.xml
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Release\System.Net.Http.Extensions.xml
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Release\System.Net.Http.Primitives.xml
-C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\Anime Tracking Service Wrapper.WM.csprojResolveAssemblyReference.cache
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\Anime Tracking Service Wrapper (Windows).dll
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\Anime Tracking Service Wrapper (Windows).pdb
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\priconfig.xml
@@ -21,3 +20,5 @@ C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Se
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\qualifiers.txt
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\qualifiers.txt.intermediate
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\MultipleQualifiersPerDimensionFound.txt
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\obj\Release\Anime Tracking Service Wrapper.WM.csprojResolveAssemblyReference.cache
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Windows)\bin\Release\Anime Tracking Service Wrapper (Windows).XML

@@ -4,3 +4,5 @@ C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Se
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Release\Newtonsoft.Json.xml
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Release\Anime Tracking Service Wrapper (Desktop).dll
 C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Release\Anime Tracking Service Wrapper (Desktop).pdb
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\obj\Release\Anime Tracking Service Wrapper (Desktop).csprojResolveAssemblyReference.cache
+C:\Users\andre\Documents\GitHub\Anime-Tracking-Service-Wrapper\Anime Tracking Service Wrapper (Desktop)\bin\Release\Anime Tracking Service Wrapper (Desktop).XML
