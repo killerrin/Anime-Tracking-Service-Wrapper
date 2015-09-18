@@ -42,6 +42,8 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
                 if (m_episodesWatched == value) return;
                 m_episodesWatched = value;
                 RaisePropertyChanged(nameof(EpisodesWatched));
+
+                //if (AreAllEpisodesWatched) Section = LibrarySection.Completed;
             }
         }
 
@@ -117,7 +119,7 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
             }
         }
 
-        private AnimeObject m_anime;
+        private AnimeObject m_anime = new AnimeObject();
         public AnimeObject Anime
         {
             get { return m_anime; }
@@ -139,6 +141,35 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
         {
             Anime = anime;
             Service = Anime.Service;
+        }
+
+        [JsonIgnore]
+        public bool AreAllEpisodesWatched
+        {
+            get
+            {
+                if (Anime.EpisodeCount <= 0) return false;
+                if (EpisodesWatched >= Anime.EpisodeCount) return true;
+                return false;
+            }
+        }
+        [JsonIgnore]
+        public bool AreNoEpisodesWatched
+        {
+            get
+            {
+                if (EpisodesWatched == 0) return true;
+                return false;
+            }
+        }
+
+        public void SetLibrarySectionWithoutNotify(LibrarySection section)
+        {
+            m_section = section;
+        }
+        public void SetEpisodeWatchedWithoutNotify(int episodewatched)
+        {
+            m_episodesWatched = episodewatched;
         }
     }
 }

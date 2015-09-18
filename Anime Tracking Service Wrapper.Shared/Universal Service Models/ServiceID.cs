@@ -76,5 +76,17 @@ namespace AnimeTrackingServiceWrapper.UniversalServiceModels
         {
             return Service.ToString() + " | " + MediaType.ToString() + " | " + ID;
         }
+
+        public override bool Equals(object obj)
+        {
+            if (obj is ServiceID) return Equals((ServiceID)obj);
+            return false;
+        }
+
+        public bool Equals(ServiceID id)
+        {
+            if (m_id == id.ID) return true;
+            return false;
+        }
     }
 }
